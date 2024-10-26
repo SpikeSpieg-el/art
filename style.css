@@ -1,0 +1,278 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Верхняя панель */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    flex-wrap: wrap;
+}
+
+.header .logo {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.header nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.header nav a:last-child {
+    color: white;
+    background-color: #00B8E6;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Первый блок контента */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.content .block {
+    flex: 1 1 50%;
+    height: 300px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.block-1 { background-color: #E74C3C; }
+.block-2 { background-color: #F39C12; }
+.block-3 { background-color: #12f3d1; }
+.block-4 { background-color: #f32c12; }
+
+
+/* Секция Explore */
+.explore-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.explore-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.explore-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.explore-buttons button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.explore-buttons button:hover {
+    background-color: #333;
+}
+
+/* Секция историй */
+.stories-section {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    margin: 40px auto;
+}
+
+.stories-section h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Сетка карточек */
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.story-card {
+    position: relative;
+    background-color: #ddd; /* серый фон, заменяющий изображения */
+    color: white;
+    padding: 20px;
+    height: 200px;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.story-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    /* Уменьшение шрифта для заголовков */
+    .header .logo {
+        font-size: 20px;
+    }
+
+    .explore-section h2,
+    .stories-section h3 {
+        font-size: 20px;
+    }
+
+    /* Перестроение блоков контента в один столбец */
+    .content .block {
+        flex: 1 1 100%;
+        height: 250px;
+        font-size: 20px;
+    }
+    
+    /* Сетка кнопок в explore-секции */
+    .explore-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Уменьшение padding для маленьких экранов */
+    .header {
+        padding: 10px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header nav {
+        justify-content: center;
+    }
+
+    /* Уменьшение шрифта в карточках и уменьшение высоты */
+    .stories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-card {
+        height: 150px;
+    }
+
+    .story-overlay {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .explore-buttons button {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}
+/* Контейнер галереи */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    perspective: 1000px;
+}
+
+/* Общие стили карточек */
+.gallery-card {
+    position: relative;
+    width: 150px;
+    height: 200px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+    transform-origin: center center;
+}
+
+.gallery-card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.3s;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1); /* Увеличение изображения на карточке */
+}
+
+/* Оверлей текста */
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Стили при наведении */
+.gallery-card:hover {
+    transform: scale(1.2);
+    z-index: 10; /* Поверх других карточек */
+}
+
+/* Эффект затемнения для неактивных карточек */
+.gallery-card:not(:hover) {
+    opacity: 0.6;
+}
+
+/* Контейнер с описанием */
+.description {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    width: 100%;
+    
+
+}
