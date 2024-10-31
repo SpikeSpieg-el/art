@@ -7,22 +7,28 @@ body, html {
 /* Верхняя панель */
 .header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
     background-color: white;
     flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .header .logo {
     font-weight: bold;
-    font-size: 24px;
+    width: 130px;
+    padding-top: 10px;
 }
 
 .header nav {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
 }
 
 .header nav a {
@@ -48,7 +54,7 @@ body, html {
 
 .content .block {
     flex: 1 1 50%;
-    height: 300px;
+    
     color: white;
     display: flex;
     justify-content: center;
@@ -58,10 +64,10 @@ body, html {
     text-align: center;
 }
 
-.block-1 { background-color: #E74C3C; }
-.block-2 { background-color: #F39C12; }
-.block-3 { background-color: #12f3d1; }
-.block-4 { background-color: #f32c12; }
+.block-1 { background-color: #e99188; }
+.block-2 { background-color: #ecb151; }
+.block-3 { background-color: #89edde; }
+.block-4 { background-color: #ea9c92; }
 
 
 /* Секция Explore */
