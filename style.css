@@ -78,11 +78,11 @@ body, html {
 }
 
 .img1 {
-    background-image: url(https://th.bing.com/th/id/OIG2.AaS34m2.Iy0eE_hg1DFN?w=270&h=270&c=6&r=0&o=5&pid=ImgGn);
+    background-image: url(https://goru.travel/storage/app/uploads/public/5ac/34b/6d4/5ac34b6d410bf504332294.jpg);
 }
 
 .img2 {
-    background-image: url(https://th.bing.com/th/id/OIG2.Q63QVMRraLINQ9rhdNLC?w=270&h=270&c=6&r=0&o=5&pid=ImgGn);
+    background-image: url(https://t-l.ru/i/ncr1058/666/325666/tn_rn325666_2ce618cf0bde8f7.jpg);
 }
 
 .img3 {
@@ -101,7 +101,11 @@ body, html {
 .block-4 { background-color: #ea9c92; }
 
 .block .text{
-padding: 20px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    text-align: left;
 }
 
 /* Секция Explore */
