@@ -49,26 +49,55 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    margin-top: 20px;
+    flex-direction: column;
+    
 }
 
 .content .block {
     flex: 1 1 50%;
-    
     color: white;
     display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+    flex-direction: row;
+    align-items: center;
 }
+.img1, .img2, .img3, .img4 { 
+    height: 250px;
+    width: 100%;
+    background-color: #333;
+    background-size: cover; /* Это свойство обеспечит масштабирование изображения */
+    background-position: center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Отключает повторение изображения */
+}
+
+.img1 {
+    background-image: url(https://th.bing.com/th/id/OIG2.AaS34m2.Iy0eE_hg1DFN?w=270&h=270&c=6&r=0&o=5&pid=ImgGn);
+}
+
+.img2 {
+    background-image: url(https://th.bing.com/th/id/OIG2.Q63QVMRraLINQ9rhdNLC?w=270&h=270&c=6&r=0&o=5&pid=ImgGn);
+}
+
+.img3 {
+    background-image: url(https://th.bing.com/th/id/OIG2.E.Xrm2PLVKleEgA5nOYq?w=270&h=270&c=6&r=0&o=5&pid=ImgGn);
+}
+
+.img4 {
+    background-image: url(https://th.bing.com/th/id/OIG2.fS9fctVoGOUxq9bKcZ_g?w=270&h=270&c=6&r=0&o=5&pid=ImgGn); 
+} 
+
+
 
 .block-1 { background-color: #e99188; }
 .block-2 { background-color: #ecb151; }
-.block-3 { background-color: #89edde; }
+.block-3 { background-color: #39796f; }
 .block-4 { background-color: #ea9c92; }
 
+.block .text{
+padding: 20px 20px 20px 20px;
+}
 
 /* Секция Explore */
 .explore-section {
@@ -106,10 +135,10 @@ body, html {
 
 /* Секция историй */
 .stories-section {
-    width: 90%;
-    max-width: 1200px;
     text-align: center;
     margin: 40px auto;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .stories-section h3 {
@@ -163,7 +192,7 @@ body, html {
     /* Перестроение блоков контента в один столбец */
     .content .block {
         flex: 1 1 100%;
-        height: 250px;
+        height: 180px;
         font-size: 20px;
     }
     
@@ -211,8 +240,11 @@ body, html {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-top: 20px;
-    perspective: 1000px;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 /* Общие стили карточек */
@@ -278,7 +310,7 @@ body, html {
     color: white;
     text-align: center;
     font-size: 18px;
-    width: 100%;
+    
     
 
 }
