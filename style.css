@@ -70,6 +70,11 @@ body, html {
     background-size: cover; /* Это свойство обеспечит масштабирование изображения */
     background-position: center; /* Центрирует изображение */
     background-repeat: no-repeat; /* Отключает повторение изображения */
+    transition: transform 0.2s ease;
+}
+
+.img1:hover, .img2:hover, .img3:hover, .img4:hover {
+    transform: scale(1.03); /* Увеличиваем масштаб при наведении */
 }
 
 .img1 {
