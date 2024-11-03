@@ -1,7 +1,77 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    
+    font-family: Arial, Helvetica, sans-serif
+
+}
+#scrollToTopBtn {
+    display: none; /* По умолчанию скрыта */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: darkcyan;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s;
+    z-index: 99;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #005f5f; /* Более темный цвет при наведении */
+}
+
+#scrollToTopBtn:focus {
+    outline: none; /* Убирает стандартное выделение кнопки */
+}
+
+h1{
+    
+    text-align: center;
+}
+h2{
+    text-align: center;
+    font-size: 28px;
+    color: azure;
+    margin: 0%;
+    padding: 36px 0 36px 0;
+}
+
+
+/* Основной блок с контентом */
+.content_begin {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Текстовые блоки */
+.txt {
+    font-family: 'PT Sans', sans-serif;
+    color: #333;
+    padding: 0 20px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Фон для раздела с направлениями */
+.dpi_text {
+    background-color: darkcyan;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    color: white;
+    
 }
 
 /* Верхняя панель */
@@ -86,7 +156,7 @@ body, html {
 }
 
 .img3 {
-    background-image: url(https://th.bing.com/th/id/OIG2.E.Xrm2PLVKleEgA5nOYq?w=270&h=270&c=6&r=0&o=5&pid=ImgGn);
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3U6kJCi2eHqBck1G0jo7kz9q0eC5YpdERwA&shttps://ksk66.ru/wp-content/uploads/2018/10/nmy20gdtQdo.jpg);
 }
 
 .img4 {
