@@ -291,6 +291,13 @@ h2{
         font-size: 28px;
     }
 
+     .block .text{
+        padding: 20px 20px 20px 20px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        text-align: left;
+    }
 
     .explore-section h2,
     .stories-section h3 {
