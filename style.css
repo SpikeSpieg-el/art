@@ -5,6 +5,29 @@ body, html {
     font-family: Arial, sans-serif
 
 }
+.bg_img_begin {
+    position: relative; /* Необходим для абсолютного позиционирования псевдоэлемента */
+    overflow: hidden; /* Прячем содержимое, выходящее за пределы блока */
+}
+
+.bg_img_begin::before {
+    content: ''; /* Псевдоэлемент должен иметь контент */
+    position: absolute; /* Абсолютное позиционирование относительно родителя */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(https://i.pinimg.com/564x/bc/54/4e/bc544e2dad0b3738f48948cffe1d494c.jpg);
+    
+    opacity: 0.3; /* Установите уровень прозрачности изображения (0.0 - полностью прозрачный, 1.0 - полностью непрозрачный) */
+    z-index: 1; /* Устанавливаем порядок отображения */
+}
+
+.bg_img_begin > * {
+    position: relative; /* Чтобы содержимое было выше псевдоэлемента */
+    z-index: 2; /* Устанавливаем порядок отображения содержимого */
+}
+
 #scrollToTopBtn {
     display: none; /* По умолчанию скрыта */
     position: fixed;
@@ -37,17 +60,17 @@ h1{
     margin: 0%;
 }
 h2{
-    text-align: center;
+    text-align: left;
     font-size: 28px;
     color: azure;
     margin: 0%;
-    padding: 36px 18px 36px 18px;
+    padding: 36px 40px 36px 40px;
 }
 
 
-/* Основной блок с контентом */
+
 .content_begin {
-    max-width: 800px;
+   
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -55,7 +78,7 @@ h2{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Текстовые блоки */
+
 .txt {
     font-family: 'PT Sans', sans-serif;
     color: #333;
@@ -65,11 +88,11 @@ h2{
     text-align: center;
 }
 
-/* Фон для раздела с направлениями */
+
 .dpi_text {
-    background-color: darkcyan;
+    background-color: rgb(71 122 141);
     text-align: center;
-    padding: 20px 0;
+    
     margin-top: 20px;
     color: white;
     
@@ -172,7 +195,7 @@ h2{
 .block-4 { background-color: #ea9c92; }
 
 .block .text{
-    padding: 20px 20px 20px 20px;
+    padding: 20px 20px 20px 40px;
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -264,6 +287,11 @@ h2{
         font-size: 20px;
     }
 
+    h1{
+        font-size: 28px;
+    }
+
+
     .explore-section h2,
     .stories-section h3 {
         font-size: 20px;
@@ -289,6 +317,9 @@ h2{
         padding: 10px;
         flex-direction: column;
         text-align: center;
+    }
+    h1{
+        font-size: 24px;
     }
 
     .header nav {
