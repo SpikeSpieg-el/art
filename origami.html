@@ -25,6 +25,10 @@
 button:hover {
   background-color: #3e8e41; /* Темно-зеленый цвет при наведении */
 } 
+#results {
+  display: none;
+  margin-top: 20px;
+}
     </style>
     <iframe
     width="720"
@@ -38,5 +42,196 @@ button:hover {
     <button onclick="window.location.href = 'https://www.dpi-utm.ru/';">
         Вернуться на сайт
       </button>
+
+      <h1>Тест по Декоративно-прикладному искусству</h1>
+
+      <form id="quiz">
+      
+        <p><strong>1. К какому виду декоративно-прикладного искусства относится гобелен?</strong></p>
+        <input type="radio" name="q1" value="a"> a) К керамике<br>
+        <input type="radio" name="q1" value="b"> b) К текстилю<br>
+        <input type="radio" name="q1" value="c"> c) К художественной обработке металла<br>
+      
+        <p><strong>2. Что такое роспись по фарфору?</strong></p>
+        <input type="radio" name="q2" value="a"> a) Вид декоративно-прикладного искусства, связанный с росписью изделий из фарфора<br>
+        <input type="radio" name="q2" value="b"> b) Вид декоративно-прикладного искусства, связанный с изготовлением фарфора<br>
+        <input type="radio" name="q2" value="c"> c) Способ обработки стекла<br>
+      
+        <p><strong>3. Какой стиль в декоративно-прикладном искусстве характеризуется использованием растительных мотивов и ярких цветов?</strong></p>
+        <input type="radio" name="q3" value="a"> a) Модерн<br>
+        <input type="radio" name="q3" value="b"> b) Барокко<br>
+        <input type="radio" name="q3" value="c"> c) Классицизм<br>
+      
+        <p><strong>4. Как называется искусство создания украшений из драгоценных металлов и камней?</strong></p>
+        <input type="radio" name="q4" value="a"> a) Ювелирное искусство<br>
+        <input type="radio" name="q4" value="b"> b) Художественная обработка дерева<br>
+        <input type="radio" name="q4" value="c"> c) Гончарное искусство<br>
+      
+        <p><strong>5. Какой материал чаще всего используется в художественной обработке дерева?</strong></p>
+        <input type="radio" name="q5" value="a"> a) Дерево<br>
+        <input type="radio" name="q5" value="b"> b) Глина<br>
+        <input type="radio" name="q5" value="c"> c) Металл<br>
+      
+        <p><strong>6. Что такое витраж?</strong></p>
+        <input type="radio" name="q6" value="a"> a) Картина из цветного стекла<br>
+        <input type="radio" name="q6" value="b"> b) Картина из керамической плитки<br>
+        <input type="radio" name="q6" value="c"> c) Картина из ткани<br>
+      
+      
+        <p><strong>7.  Что такое художественная керамика?</strong></p>
+        <input type="radio" name="q7" value="a"> a) Изделия из обожженной глины, имеющие художественную ценность<br>
+        <input type="radio" name="q7" value="b"> b) Изделия из стекла<br>
+        <input type="radio" name="q7" value="c"> c) Изделия из металла<br>
+      
+        <p><strong>8.  Какой вид декоративно-прикладного искусства связан с созданием ковров?</strong></p>
+        <input type="radio" name="q8" value="a"> a) Ковроткачество<br>
+        <input type="radio" name="q8" value="b"> b) Художественная обработка металла<br>
+        <input type="radio" name="q8" value="c"> c) Художественная обработка камня<br>
+      
+      
+        <p><strong>9.  Что такое художественная ковка?</strong></p>
+        <input type="radio" name="q9" value="a"> a) Декоративная обработка металла с помощью молота<br>
+        <input type="radio" name="q9" value="b"> b) Декоративная обработка дерева<br>
+        <input type="radio" name="q9" value="c"> c) Декоративная обработка стекла<br>
+      
+      
+        <p><strong>10. Какую роль играет декоративно-прикладное искусство в нашей жизни?</strong></p>
+        <input type="radio" name="q10" value="a"> a) Декоративно-прикладное искусство украшает нашу жизнь, делает ее более красивой и комфортной<br>
+        <input type="radio" name="q10" value="b"> a) Декоративно-прикладное искусство не играет никакой роли<br>
+        <input type="radio" name="q10" value="c"> a) Декоративно-прикладное искусство используется только для создания произведений искусства<br>
+      
+      
+        <button type="button" onclick="checkAnswers()">Проверить</button>
+      
+      </form>
+      
+      <div id="results">
+        <h2>Результаты:</h2>
+        <p>Вы ответили правильно на <span id="correctAnswers"></span> из 10 вопросов.</p>
+      </div>
+      
+      <script>
+      function checkAnswers() {
+        var answers = ["b", "a", "a", "a", "a", "a", "a", "a", "a", "a"];
+        var correctCount = 0;
+      
+        for (var i = 1; i <= 10; i++) {
+          var selectedAnswer = document.querySelector('input[name="q' + i + '"]:checked');
+          if (selectedAnswer && selectedAnswer.value === answers[i - 1]) {
+            correctCount++;
+          }
+        }
+      
+        document.getElementById("correctAnswers").textContent = correctCount;
+        document.getElementById("results").style.display = "block";
+      }
+      </script>
+
+
+
+<style>
+  body {
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  #canvas {
+      border: 1px solid black;
+      cursor: pointer;
+  }
+  #controls {
+      margin-top: 10px;
+  }
+</style>
+</head>
+
+
+<h1>Раскраска фигур</h1>
+
+<canvas id="canvas" width="500" height="300"></canvas>
+
+<div id="controls">
+<input type="color" id="colorPicker" value="#000000">
+<button onclick="clearCanvas()">Очистить</button>
+</div>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const colorPicker = document.getElementById('colorPicker');
+
+const shapes = [
+  { type: 'square', x: 50, y: 50, width: 100, height: 100, color: null },
+  { type: 'circle', x: 250, y: 100, radius: 50, color: null },
+  { type: 'triangle', x1: 400, y1: 50, x2: 450, y2: 150, x3: 350, y3: 150, color: null}
+];
+
+function drawShapes() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Очищаем canvas перед перерисовкой
+
+  shapes.forEach(shape => {
+      ctx.fillStyle = shape.color || 'black'; // Используем цвет фигуры или черный по умолчанию
+
+      if (shape.type === 'square') {
+          ctx.fillRect(shape.x, shape.y, shape.width, shape.height);
+      } else if (shape.type === 'circle') {
+          ctx.beginPath();
+          ctx.arc(shape.x, shape.y, shape.radius, 0, 2 * Math.PI);
+          ctx.fill();
+      } else if (shape.type === 'triangle') {
+          ctx.beginPath();
+          ctx.moveTo(shape.x1, shape.y1);
+          ctx.lineTo(shape.x2, shape.y2);
+          ctx.lineTo(shape.x3, shape.y3);
+          ctx.closePath();
+          ctx.fill();
+      }
+  });
+}
+
+
+canvas.addEventListener('click', function(e) {
+  const x = e.offsetX;
+  const y = e.offsetY;
+  const clickedColor = colorPicker.value;
+
+
+  shapes.forEach(shape => {
+      if (shape.type === 'square') {
+          if (x >= shape.x && x <= shape.x + shape.width &&
+              y >= shape.y && y <= shape.y + shape.height) {
+              shape.color = clickedColor;
+          }
+      } else if (shape.type === 'circle') {
+          const distanceToCenter = Math.sqrt(Math.pow(x - shape.x, 2) + Math.pow(y - shape.y, 2));
+          if (distanceToCenter <= shape.radius) {
+              shape.color = clickedColor;
+          }
+       } else if (shape.type === 'triangle') {
+          // Проверка попадания в треугольник
+          const areaOrig = Math.abs((shape.x2 - shape.x1) * (shape.y3 - shape.y1) - (shape.x3 - shape.x1) * (shape.y2 - shape.y1));
+          const area1 = Math.abs((shape.x1 - x) * (shape.y2 - y) - (shape.x2 - x) * (shape.y1 - y));
+          const area2 = Math.abs((shape.x2 - x) * (shape.y3 - y) - (shape.x3 - x) * (shape.y2 - y));
+          const area3 = Math.abs((shape.x3 - x) * (shape.y1 - y) - (shape.x1 - x) * (shape.y3 - y));
+          if (Math.abs(area1 + area2 + area3 - areaOrig) < 1) { // Добавлено небольшое смещение для погрешности
+              shape.color = clickedColor;
+           }
+      }
+  });
+
+  drawShapes(); // Перерисовываем фигуры с новыми цветами
+});
+
+function clearCanvas() {
+  shapes.forEach(shape => shape.color = null); // Сбрасываем цвета всех фигур
+  drawShapes(); // Перерисовываем фигуры
+}
+
+drawShapes(); // Инициализируем canvas с фигурами при загрузке страницы
+</script>
+
+
+
 </body>
 </html>
