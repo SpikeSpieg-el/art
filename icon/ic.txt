@@ -1,0 +1,14 @@
+.doc: 
+https://img.icons8.com/color/48/000000/ms-word.png
+
+.docx: 
+https://img.icons8.com/color/48/000000/microsoft-word-2019.png
+
+.ppt: 
+https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019.png
+
+.pptx: 
+https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019.png
+
+.pdf: 
+https://img.icons8.com/color/48/000000/pdf-2.png

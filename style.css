@@ -157,7 +157,7 @@ h2{
     flex-direction: row;
     align-items: center;
 }
-.img1, .img2, .img3, .img4 { 
+.img1, .img2, .img3, .img4, .img5, .img6 { 
     height: 250px;
     width: 100%;
     background-color: #333;
@@ -167,7 +167,7 @@ h2{
     transition: transform 0.2s ease;
 }
 
-.img1:hover, .img2:hover, .img3:hover, .img4:hover {
+.img1:hover, .img2:hover, .img3:hover, .img4:hover, .img5:hover, .img6:hover {
     transform: scale(1.03); /* Увеличиваем масштаб при наведении */
 }
 
@@ -176,16 +176,22 @@ h2{
 }
 
 .img2 {
-    background-image: url(https://t-l.ru/i/ncr1058/666/325666/tn_rn325666_2ce618cf0bde8f7.jpg);
+    background-image: url(https://t-l.ru/i/ncr1058/088/328088/tn_328088_2ce633bc8cd8fdf.jpg);
 }
 
 .img3 {
-    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3U6kJCi2eHqBck1G0jo7kz9q0eC5YpdERwA&shttps://ksk66.ru/wp-content/uploads/2018/10/nmy20gdtQdo.jpg);
+    background-image: url(https://img-fotki.yandex.ru/get/52446/209556413.58/0_13b7cc_eec2fd3c_orig.jpg);
 }
 
 .img4 {
-    background-image: url(https://th.bing.com/th/id/OIG2.fS9fctVoGOUxq9bKcZ_g?w=270&h=270&c=6&r=0&o=5&pid=ImgGn); 
+    background-image: url("img/вышивка3.png")
+}
+.img5 {
+    background-image: url("img/керамика.png"); 
 } 
+.img6 {
+    background-image: url(https://t-l.ru/i/ncr1058/666/325666/tn_rn325666_2ce618cf0bde8f7.jpg); 
+}
 
 
 
@@ -193,6 +199,9 @@ h2{
 .block-2 { background-color: #ecb151; }
 .block-3 { background-color: #39796f; }
 .block-4 { background-color: #ea9c92; }
+.block-5 { background-color: #e99188; }
+.block-6 { background-color: #ecb151; }
+
 
 .block .text{
     padding: 20px 20px 20px 40px;
@@ -216,9 +225,11 @@ h2{
 .explore-buttons {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 10px;
     margin-top: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .explore-buttons button {
@@ -436,6 +447,4 @@ h2{
     text-align: center;
     font-size: 18px;
     
-    
-
 }

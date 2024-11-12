@@ -17,3 +17,4 @@ function scrollToTop() {
         behavior: "smooth"
     });
 }
+

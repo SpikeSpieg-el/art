@@ -1,0 +1,37 @@
+.download-block {
+    max-width: 300px;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+  }
+
+  .download-link {
+    text-decoration: none;
+    color: #337ab7;
+  }
+
+  .download-link:hover {
+    color: #23527c;
+  }
+
+  .file-icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+  }
+
+  .file-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .custom-file-name {
+    font-size: 14px;
+    color: #666;
+  }
