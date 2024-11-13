@@ -158,47 +158,6 @@ button:hover {
 
 
 
-<h1>Раскраска фигур</h1>
-
-
-
-<div id="container">
-  <svg height="365.03px" width="455.672px" viewBox="20.8564 41.8022 455.6719 365.0297" xmlns="http://www.w3.org/2000/svg" id="mySVG">
-    <g id="object-6" transform="matrix(0.9996290206909179, 0, 0, 1.0003089904785156, 33.89153271902671, 39.5474927721752)">
-      <rect id="object-1" style="fill: rgb(255, 255, 255); stroke: rgb(0, 0, 0);" height="127.354" width="232.21" y="217.163" x="83.152"></rect>
-      <path id="object-2" style="fill: rgb(255, 255, 255); stroke: rgb(0, 0, 0);" d="M 202.014 95.932 L 371.729 216.551 L 32.299 216.551 L 202.014 95.932 Z"></path>
-      <rect id="object-3" style="stroke: rgb(0, 0, 0); fill: rgb(255, 255, 255);" height="87.556" width="110.897" y="239.817" x="141.358"></rect>
-      <path id="object-4" d="M -13.04 360.436 L -6.3 276.554 C -6.3 276.554 5.953 344.516 7.179 344.516 C 8.405 344.516 15.144 283.289 16.369 284.513 C 17.594 285.737 29.848 348.19 29.848 348.19 L 48.229 297.371 C 48.229 297.371 62.934 350.639 62.934 350.027 C 62.934 349.415 71.511 282.064 71.511 286.962 C 71.511 291.86 77.025 355.537 77.025 355.537 L -13.04 360.436 Z" style="fill: rgb(255, 255, 255); stroke: rgb(0, 0, 0);"></path>
-      <path id="object-5" d="M 323.327 367.171 L 330.679 265.533 L 339.257 351.864 L 350.285 274.105 C 350.285 274.105 364.99 351.864 364.377 353.088 C 363.764 354.312 371.729 274.105 371.729 274.105 L 383.371 353.701 L 393.174 276.554 L 411.554 354.925 C 411.554 354.925 418.907 274.717 418.907 279.615 C 418.907 284.513 442.801 365.334 442.801 365.334 L 323.327 367.171 Z" style="fill: rgb(255, 255, 255); stroke: rgb(0, 0, 0);"></path>
-      <ellipse id="object-0" ry="37.043" rx="37.374" cy="39.297" cx="83.765" style="fill: rgb(255, 255, 255); stroke: rgb(0, 0, 0);"></ellipse>
-    </g>
-  </svg>
-  <div>
-  <input type="color" id="colorPicker" value="#ff0000">
-  <button onclick="clearCanvas()">Сбросить</button>
-</div>
-</div>
-
-<script>
-  let mySVG = document.getElementById('mySVG');
-  let colorPicker = document.getElementById('colorPicker');
-
-  mySVG.addEventListener('click', function(event) {
-    let clickedElement = event.target;
-    if (clickedElement.tagName === 'rect' || clickedElement.tagName === 'path' || clickedElement.tagName === 'ellipse' || clickedElement.tagName === 'circle') {
-      clickedElement.style.fill = colorPicker.value;
-    }
-  });
-
-  function clearCanvas() {
-    let elements = mySVG.querySelectorAll('rect, path, ellipse, circle');
-    elements.forEach(element => {
-      element.style.fill = 'rgb(255, 255, 255)';
-    });
-  }
-</script>
-
-
 
 </body>
 </html>
