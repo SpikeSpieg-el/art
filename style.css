@@ -35,7 +35,7 @@ body, html {
     right: 20px;
     width: 50px;
     height: 50px;
-    background-color: darkcyan;
+    background-color: #495B73;
     color: white;
     font-size: 24px;
     border: none;
@@ -90,7 +90,7 @@ h2{
 
 
 .dpi_text {
-    background-color: rgb(71 122 141);
+    background-color: #495B73;
     text-align: center;
     
     margin-top: 20px;
@@ -110,7 +110,7 @@ h2{
     align-items: center;
 }
 
-.header .logo {
+.header .logo img {
     font-weight: bold;
     width: 130px;
     padding-top: 10px;
@@ -123,6 +123,7 @@ h2{
     flex-direction: row;
     align-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .header nav a {
@@ -133,7 +134,7 @@ h2{
 
 .header nav a:last-child {
     color: white;
-    background-color: #00B8E6;
+    background-color: #DA4E5B;
     padding: 5px 10px;
     border-radius: 4px;
 }
@@ -195,12 +196,12 @@ h2{
 
 
 
-.block-1 { background-color: #e99188; }
-.block-2 { background-color: #ecb151; }
-.block-3 { background-color: #39796f; }
-.block-4 { background-color: #ea9c92; }
-.block-5 { background-color: #e99188; }
-.block-6 { background-color: #ecb151; }
+.block-1 { background-color: #DA4E5B; }
+.block-2 { background-color: #F291A4; }
+.block-3 { background-color: #8C6138; }
+.block-4 { background-color: #495B73; }
+.block-5 { background-color: #DA4E5B; }
+.block-6 { background-color: #F291A4; }
 
 
 .block .text{
