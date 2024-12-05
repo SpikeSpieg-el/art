@@ -382,6 +382,7 @@ h2{
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
+    margin-bottom: 26px;
 }
 
 /* Общие стили карточек */
@@ -439,16 +440,6 @@ h2{
     opacity: 0.6;
 }
 
-/* Контейнер с описанием */
-.description {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-size: 18px;
-    
-}
 
 .content .block {
     cursor: pointer;
@@ -585,3 +576,70 @@ h2{
 .icon-instagram::before { content: "Inst"; }
 .icon-vk::before { content: "VK"; }
 .icon-youtube::before { content: "YT"; }
+
+/* Responsive Footer */
+@media screen and (max-width: 768px) {
+    .modern-footer {
+        padding: 20px 15px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-column {
+        margin-bottom: 20px;
+    }
+
+    .footer-column nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-column nav a {
+        margin-bottom: 10px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        margin-top: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links a {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .modern-footer {
+        padding: 15px 10px;
+    }
+
+    .footer-column h4 {
+        font-size: 16px;
+    }
+
+    .footer-column nav a {
+        font-size: 14px;
+    }
+
+    .social-links {
+        gap: 10px;
+    }
+
+    .social-icon {
+        font-size: 20px;
+    }
+}
