@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Керамика</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles_crafts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
 </head>
 <body>
-    <div class="container block-5">
-        <div class="img5"></div>
-        <h1>Керамика</h1>
-        <p>Традиционное искусство гончарного мастерства, уходящее корнями в глубокую древность. Керамика - это не просто ремесло, а целый мир художественного творчества, где глина превращается в уникальные произведения искусства, отражающие культуру и традиции народа.</p>
-        <a href="../index.html" class="back-link">Вернуться на главную</a>
+    <div class="container block-5 animate__animated animate__fadeIn">
+        <div class="img5 animate__animated animate__zoomIn"></div>
+        <h1 class="animate__animated animate__fadeInUp">Керамика</h1>
+        <p class="animate__animated animate__fadeInUp">Традиционное искусство гончарного мастерства, уходящее корнями в глубокую древность. Керамика - это не просто ремесло, а целый мир художественного творчества, где глина превращается в уникальные произведения искусства, отражающие культуру и традиции народа.</p>
+        <a href="../index.html" class="back-link animate__animated animate__pulse animate__delay-2s">Вернуться на главную</a>
     </div>
+
+    <script>
+        // GSAP Animation Example
+        gsap.from(".container", {
+            duration: 1, 
+            opacity: 0, 
+            y: 50, 
+            ease: "power3.out"
+        });
+    </script>
 </body>
 </html>

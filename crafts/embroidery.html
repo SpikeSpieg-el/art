@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вышивка</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles_crafts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
 </head>
 <body>
-    <div class="container block-4">
-        <div class="img4"></div>
-        <h1>Вышивка</h1>
-        <p>Искусство вышивки - древнее и трепетное ремесло, где каждый стежок несет в себе глубокий смысл и эмоциональную выразительность. Это не просто украшение ткани, а целый язык орнаментов, символов и традиций, передающихся из поколения в поколение.</p>
-        <a href="../index.html" class="back-link">Вернуться на главную</a>
+    <div class="container block-4 animate__animated animate__fadeIn">
+        <div class="img4 animate__animated animate__zoomIn"></div>
+        <h1 class="animate__animated animate__fadeInUp">Вышивка</h1>
+        <p class="animate__animated animate__fadeInUp">Искусство вышивки - древнее и трепетное ремесло, где каждый стежок несет в себе глубокий смысл и эмоциональную выразительность. Это не просто украшение ткани, а целый язык орнаментов, символов и традиций, передающихся из поколения в поколение.</p>
+        <a href="../index.html" class="back-link animate__animated animate__pulse animate__delay-2s">Вернуться на главную</a>
     </div>
+
+    <script>
+        // GSAP Animation Example
+        gsap.from(".container", {
+            duration: 1, 
+            opacity: 0, 
+            y: 50, 
+            ease: "power3.out"
+        });
+    </script>
 </body>
 </html>
