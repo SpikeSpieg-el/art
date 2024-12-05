@@ -449,3 +449,139 @@ h2{
     font-size: 18px;
     
 }
+
+.content .block {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.content .block:hover {
+    transform: scale(1.05);
+}
+
+.content .block:active {
+    transform: scale(0.95);
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.back-link:hover {
+    background-color: #f4f4f4;
+}
+
+.modern-footer {
+    background-color: #121212;
+    color: #ffffff;
+    padding: 30px 0 30px;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #333;
+    color: #888;
+}
+
+.footer-column nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-column nav a,
+.contact-info p {
+    color: #aaa;
+    text-decoration: none;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-column nav a:hover {
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    color: #aaa;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    margin-top: 40px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+/* Placeholder icons (you'd replace these with actual icon fonts or SVGs) */
+.icon-location::before { content: "📍"; }
+.icon-phone::before { content: "📞"; }
+.icon-email::before { content: "✉️"; }
+.icon-instagram::before { content: "Inst"; }
+.icon-vk::before { content: "VK"; }
+.icon-youtube::before { content: "YT"; }
