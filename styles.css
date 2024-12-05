@@ -21,11 +21,13 @@ body {
 
 .container {
     width: 80%;
+    max-width: 1200px;
     margin: auto;
     overflow: hidden;
     padding: 20px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
 }
 
 .back-link {
@@ -36,8 +38,87 @@ body {
     border: 1px solid #333;
     padding: 10px 15px;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .back-link:hover {
     background-color: #f4f4f4;
+}
+
+/* Responsive Image Backgrounds */
+.img1, .img2, .img3, .img4, .img5, .img6 {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.img1 {
+    background-image: url(https://goru.travel/storage/app/uploads/public/5ac/34b/6d4/5ac34b6d410bf504332294.jpg);
+}
+
+.img2 {
+    background-image: url(https://t-l.ru/i/ncr1058/088/328088/tn_328088_2ce633bc8cd8fdf.jpg);
+}
+
+.img3 {
+    background-image: url(https://img-fotki.yandex.ru/get/52446/209556413.58/0_13b7cc_eec2fd3c_orig.jpg);
+}
+
+.img4 {
+    background-image: url("img/вышивка3.png");
+}
+
+.img5 {
+    background-image: url("img/керамика.png"); 
+} 
+
+.img6 {
+    background-image: url(https://t-l.ru/i/ncr1058/666/325666/tn_rn325666_2ce618cf0bde8f7.jpg); 
+}
+
+.block-1 { background-color: #DA4E5B; color: white; }
+.block-2 { background-color: #F291A4; color: white; }
+.block-3 { background-color: #8C6138; color: white; }
+.block-4 { background-color: #495B73; color: white; }
+.block-5 { background-color: #DA4E5B; color: white; }
+.block-6 { background-color: #F291A4; color: white; }
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .img1, .img2, .img3, .img4, .img5, .img6 {
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 5px;
+    }
+
+    .img1, .img2, .img3, .img4, .img5, .img6 {
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 0.8em;
+    }
 }
