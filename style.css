@@ -181,7 +181,7 @@ h2{
 }
 
 .img3 {
-    background-image: url("img/dsc_0096.jpg");
+    background-image: url("img/DSC_0096.jpg");
 }
 
 .img4 {
@@ -573,7 +573,7 @@ h2{
 .icon-location::before { content: "📍"; }
 .icon-phone::before { content: "📞"; }
 .icon-email::before { content: "✉️"; }
-.icon-instagram::before { content: "Inst"; }
+.icon-github::before { content: "GitHub"; }
 .icon-vk::before { content: "VK"; }
 .icon-youtube::before { content: "YT"; }
 
