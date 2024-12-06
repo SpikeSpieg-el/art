@@ -333,15 +333,16 @@ h2{
 }
 
 .img3 {
-    background-image: url("img/DSC_0096.jpg");
+    background-image: url("../img/DSC_0096.jpg");
 }
 
 .img4 {
-    background-image: url("img/вышивка3.png")
+    background-image: url("../img/вышивка3.png")
 }
 .img5 {
-    background-image: url("img/керамика.png"); 
+    background-image: url("../img/керамика.png"); 
 } 
+
 .img6 {
     background-image: url(https://t-l.ru/i/ncr1058/666/325666/tn_rn325666_2ce618cf0bde8f7.jpg); 
 }
