@@ -82,12 +82,63 @@ h2{
 .txt {
     font-family: 'PT Sans', sans-serif;
     color: #333;
-    padding: 0 20px;
     font-size: 18px;
-    
     text-align: center;
+    padding: 0 60px; /* Add space for squares */
 }
 
+.decorative-square {
+    position: absolute;
+    bottom: 0;
+    width: 40px;
+    height: 90px; /* Increased to accommodate taller rectangles */
+}
+
+.decorative-square.left {
+    left: 0;
+}
+
+.decorative-square.right {
+    right: 0;
+}
+
+/* Left side squares */
+.square-top1 {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 30px;
+    height: 50px;
+    background-color: #DA4E5B;
+}
+
+.square-bottom1 {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #F291A4;
+}
+
+/* Right side squares */
+.square-top2 {
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    width: 20px;
+    height: 80px;
+    background-color: #F291A4;
+}
+
+.square-bottom2 {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    width: 15px;
+    height: 65px;
+    background-color: #DA4E5B;
+}
 
 .dpi_text {
     background-color: #495B73;
@@ -642,4 +693,73 @@ h2{
     .social-icon {
         font-size: 20px;
     }
+}
+
+.about_us {
+    background-color: #f9f5f089;
+    padding: 60px 20px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.about_us h2 {
+    color: #333;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+.about_us h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #DA4E5B, #495B73);
+    border-radius: 2px;
+}
+
+.about_us p {
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+
+.typing-container {
+    display: block;
+    position: relative;
+    min-width: 310px;
+}
+
+.typing-text {
+    display: inline-block;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.typing-cursor1, 
+.typing-cursor2 {
+    display: inline-block;
+    margin-left: 3px;
+    opacity: 0;  /* Start hidden */
+    
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
