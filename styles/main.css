@@ -1,6 +1,7 @@
 :root {
     /* Цветовая палитра */
-    --color-primary: #495B73;
+    --color-primary: #39593b;
+    
     --color-primary-dark: #353a82;
     --color-text: #333333;
     --color-text-light: #ffffff;
@@ -175,6 +176,23 @@ h2{
     height: 30px;
     background-color: #F291A4;
 }
+.square-top1_1 {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 22px;
+    height: 95px;
+    background-color: #DA4E5B;
+}
+
+.square-bottom1_1 {
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    width: 40px;
+    height: 34px;
+    background-color: #F291A4;
+}
 
 /* Right side squares */
 .square-top2 {
@@ -194,9 +212,26 @@ h2{
     height: 65px;
     background-color: #DA4E5B;
 }
+.square-top2_2 {
+    position: absolute;
+    top: -42px;
+    right: 0;
+    width: 20px;
+    height: 80px;
+    background-color: #F291A4;
+}
+
+.square-bottom2_2 {
+    position: absolute;
+    top: -42px;
+    right: 20px;
+    width: 27px;
+    height: 38px;
+    background-color: #DA4E5B;
+}
 
 .dpi_text {
-    background-color: #495B73;
+    background-color: var(--color-primary);
     text-align: center;
     
     margin-top: 20px;
@@ -386,7 +421,7 @@ h2{
 .block-1 { background-color: #DA4E5B; }
 .block-2 { background-color: #F291A4; }
 .block-3 { background-color: #8C6138; }
-.block-4 { background-color: #495B73; }
+.block-4 { background-color: var(--color-primary); }
 .block-5 { background-color: #DA4E5B; }
 .block-6 { background-color: #F291A4; }
 
@@ -838,8 +873,8 @@ h2{
     padding: 60px 20px;
     text-align: center;
     margin: 0 auto;
-    max-width: 1200px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    
+    
     border-radius: 15px;
     transition: all 0.3s ease;
 }

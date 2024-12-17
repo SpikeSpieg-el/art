@@ -12,6 +12,24 @@ body {
     background-color: #f4f4f4;
     scroll-behavior: smooth;
 }
+/* Обертка iframe */
+.google-form {
+    width: 100%;         /* Максимальная ширина */
+    height: 200vh;       /* Высота на весь экран */
+    margin: 0;           /* Убираем отступы */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Сам iframe */
+.google-form iframe {
+    width: 100%;         /* Занимает всю ширину */
+    height: 100%;        /* Занимает всю высоту */
+    border: none;        /* Убираем рамки */
+}
+
 h1{
     padding: 36px 0 36px 0;
     text-align: center;
