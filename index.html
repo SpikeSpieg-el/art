@@ -105,7 +105,41 @@
         <div class="img6"></div>
     </div>
 </div>
+<div id="pdf-container"></div>
 
+    <!-- Подключение библиотеки PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script>
+        const url = '«Тюменская жизнь_ наследие в искусстве и культуре».pdf'; // Замените на путь к вашему PDF-документу
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
+
+        const loadingTask = pdfjsLib.getDocument(url);
+        loadingTask.promise.then(function(pdf) {
+            const numPages = pdf.numPages;
+            const container = document.getElementById('pdf-container');
+
+            for (let i = 1; i <= numPages; i++) {
+                pdf.getPage(i).then(function(page) {
+                    const viewport = page.getViewport({ scale: 1.5 });
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    canvas.className = 'pdf-page';
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    page.render(renderContext).promise.then(function() {
+                        container.appendChild(canvas);
+                    });
+                });
+            }
+        });
+    </script>
 
     <!--
     <div class="stories-section" id="master-classes">
