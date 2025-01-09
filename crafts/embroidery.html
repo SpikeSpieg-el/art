@@ -13,9 +13,13 @@
         <div class="img4 animate__animated animate__zoomIn"></div>
         <h1 class="animate__animated animate__fadeInUp">Вышивка</h1>
         <p class="animate__animated animate__fadeInUp">Искусство вышивки - древнее и трепетное ремесло, где каждый стежок несет в себе глубокий смысл и эмоциональную выразительность. Это не просто украшение ткани, а целый язык орнаментов, символов и традиций, передающихся из поколения в поколение.</p>
-        <a href="../index.html" class="back-link animate__animated animate__pulse animate__delay-2s">Вернуться на главную</a>
-    <!-- Google Форма -->
-<div class="google-form">
+        <a href="#" class="back-link animate__animated animate__pulse animate__delay-2s" onclick="parent.closeModal()">Вернуться на главную</a>
+    
+        <!-- Кнопка для разворачивания формы -->
+        <button class="toggle_Button" id="toggleFormButton" class="animate__animated animate__pulse animate__delay-2s">Пройти тест</button>
+        <script src="../js/toggle_Button_form.js"></script>
+        <!-- Google Форма -->
+<div class="google-form" id="googleForm" style="display: none;">
     <iframe 
         src="https://docs.google.com/forms/d/e/1FAIpQLSf_mM99HmgsbRwWZq58ZIvF-kd49eplbK82G6w8NSiMKdDqAw/viewform?usp=dialog=true" 
         frameborder="0" 

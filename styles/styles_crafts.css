@@ -30,6 +30,14 @@ body {
     border: none;        /* Убираем рамки */
 }
 
+.toggle_Button{
+    padding: 10px 20px; background-color: #dcdcdc; color: rgb(8, 8, 8); border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: all 0.3s ease; margin: 20px 0;
+    text-align: center;
+}
+.toggle_Button:hover{
+    background-color: #0f0f0f; color: white;
+}
+
 h1{
     padding: 36px 0 36px 0;
     text-align: center;

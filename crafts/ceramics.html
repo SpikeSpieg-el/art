@@ -15,10 +15,20 @@
         <p class="animate__animated animate__fadeInUp">
             Традиционное искусство гончарного мастерства, уходящее корнями в глубокую древность. 
             Керамика - это не просто ремесло, а целый мир художественного творчества, где глина превращается в уникальные произведения искусства, отражающие культуру и традиции народа.
+            В процессе работы с глиной мастер вкладывает частичку своей души, создавая не только функциональные предметы быта, но и настоящие произведения искусства. 
+            Каждое изделие уникально и несет в себе тепло человеческих рук. Современная керамика сочетает в себе традиционные техники с инновационными подходами, 
+            позволяя создавать как классические формы, так и авангардные произведения.
+            В Тюменской области керамическое искусство имеет особое значение, являясь важной частью культурного наследия региона. 
+            Местные мастера славятся своими уникальными техниками и художественными решениями, передавая свои знания из поколения в поколение. 
+            Сегодня керамика переживает новый расцвет, привлекая все больше молодых талантливых мастеров, которые привносят свежий взгляд в это древнее ремесло.
         </p>
-        <a href="../index.html" class="back-link animate__animated animate__pulse animate__delay-2s">Вернуться на главную</a>
+        <a href="#" class="back-link animate__animated animate__pulse animate__delay-2s" onclick="parent.closeModal()">Вернуться на главную</a>
+        
+        <!-- Кнопка для разворачивания формы -->
+        <button class="toggle_Button" id="toggleFormButton" class="animate__animated animate__pulse animate__delay-2s">Пройти тест</button>
+        <script src="../js/toggle_Button_form.js"></script>
         <!-- Google Форма -->
-        <div class="google-form">
+        <div class="google-form" id="googleForm" style="display: none;">
             <iframe 
                 src="https://docs.google.com/forms/d/e/1FAIpQLSdJUnryps6d6AvGDPKjIceY0ZfbZ_ZAn-2k0ROmuJXC1za4fw/viewform?usp=dialog=true" 
                 frameborder="0" 
@@ -27,9 +37,6 @@
                 Загрузка…
             </iframe>
         </div>
-        
-
-        
     </div>
 
     <script>
@@ -41,5 +48,6 @@
             ease: "power3.out"
         });
     </script>
+    
 </body>
 </html>

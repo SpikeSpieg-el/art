@@ -31,84 +31,91 @@
         &#8679;
     </button>
 
-<div class="bg_img_begin" id="about">
-    <h1 class="typing-container">
-        <span class="typing-text typing-line-1">Откройте мир декоративно-прикладного искусства вместе с нами!</span>
-        <span class="typing-cursor1">|</span>
-        <br>
-        <span class="typing-text typing-line-2 hidden">Творите, учитесь и вдохновляйтесь.</span>
-        <span class="typing-cursor2">|</span>
-    </h1>
-    <script src="js/typing-animation.js"></script>
+    <!-- Модальное окно -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="modal-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
 
-    <div class="content_begin" >
-        <div class="txt">
+    <div class="bg_img_begin" id="about">
+        <h1 class="typing-container">
+            <span class="typing-text typing-line-1">Откройте мир декоративно-прикладного искусства вместе с нами!</span>
+            <span class="typing-cursor1">|</span>
+            <br>
+            <span class="typing-text typing-line-2 hidden">Творите, учитесь и вдохновляйтесь.</span>
+            <span class="typing-cursor2">|</span>
+        </h1>
+        <script src="js/typing-animation.js"></script>
+
+        <div class="content_begin" >
+            <div class="txt">
+                
+            </div>
+            <div class="txt">
+                <div class="decorative-square left">
+                    <div class="square-top1"></div>
+                    <div class="square-bottom1"></div>
+                </div>
+                <br>Этот сайт создан для всех, кто интересуется декоративно-прикладным искусством. 
+                <p>Здесь вы найдете мастер-классы, информацию о традициях и современных техниках, сможете узнать о мастерах Тюмени и поделиться своим творчеством</p>
+                <div class="decorative-square right">
+                    <div class="square-top2"></div>
+                    <div class="square-bottom2"></div>
+                </div>
+            </div>
             
         </div>
-        <div class="txt">
+        <div class="about_us" id="about_us">
+            <h2>О нас</h2>
+            <p>Декоративно-прикладное искусство - это не только хобби, но и возможность самовыражения,
+                <br>развития своих навыков и открытия новых возможностей. Мы хотим помочь вам
+                <br>открыть для себя мир ДПИ,
+                <br>а также помочь вам в развитии ваших навыков и знаний.</p>
+        </div>
+        
+        <div class="dpi_text" id="directions" >
             <div class="decorative-square left">
-                <div class="square-top1"></div>
-                <div class="square-bottom1"></div>
+                <div class="square-top1_1"></div>
+                <div class="square-bottom1_1"></div>
             </div>
-            <br>Этот сайт создан для всех, кто интересуется декоративно-прикладным искусством. 
-            <p>Здесь вы найдете мастер-классы, информацию о традициях и современных техниках, сможете узнать о мастерах Тюмени и поделиться своим творчеством</p>
+            <h2> Основные направления ДПИ: </h2>
             <div class="decorative-square right">
-                <div class="square-top2"></div>
-                <div class="square-bottom2"></div>
+                <div class="square-top2_2"></div>
+                <div class="square-bottom2_2"></div>
             </div>
         </div>
-        
     </div>
-    <div class="about_us" id="about_us">
-        <h2>О нас</h2>
-        <p>Декоративно-прикладное искусство - это не только хобби, но и возможность самовыражения,
-            <br>развития своих навыков и открытия новых возможностей. Мы хотим помочь вам
-            <br>открыть для себя мир ДПИ,
-            <br>а также помочь вам в развитии ваших навыков и знаний.</p>
-    </div>
-    
-    <div class="dpi_text" id="directions" >
-        <div class="decorative-square left">
-            <div class="square-top1_1"></div>
-            <div class="square-bottom1_1"></div>
+    <div class="content">
+        <div class="block block-1" onclick="openModal('crafts/tyumen-carpet.html')">
+            <div class="img1"></div>
+            <div class="block text">Тюменский ковёр<br>сибирский промысел</div>
         </div>
-        <h2> Основные направления ДПИ: </h2>
-        <div class="decorative-square right">
-            <div class="square-top2_2"></div>
-            <div class="square-bottom2_2"></div>
+        <div class="block block-2" onclick="openModal('crafts/folk-costume.html')">
+            <div class="block text">Народный костюм<br></div>
+            <div class="img2"></div>
+        </div>
+        <div class="block block-3" onclick="openModal('crafts/wood-carving.html')">
+            <div class="img3"></div>
+            <div class="block text">Резьба по дереву<br></div>
+        </div>
+        <div class="block block-4" onclick="openModal('crafts/embroidery.html')">
+            <div class="block text">Вышивка<br></div>
+            <div class="img4"></div>
+        </div>
+        <div class="block block-5" onclick="openModal('crafts/ceramics.html')">
+            <div class="img5"></div>
+            <div class="block text">Керамика<br></div>
+        </div>
+        <div class="block block-6" onclick="openModal('crafts/house-painting.html')">
+            <div class="block text">Роспись<br>Карманская</div>
+            <div class="img6"></div>
         </div>
     </div>
-</div>
-<div class="content">
-    <div class="block block-1" onclick="window.location.href='crafts/tyumen-carpet.html'">
-        <div class="img1"></div>
-        <div class="block text">Тюменский ковёр<br>сибирский промысел</div>
-    </div>
-    <div class="block block-2" onclick="window.location.href='crafts/folk-costume.html'">
-        
-        <div class="block text">Народный костюм<br></div>
-        <div class="img2"></div>
-    </div>
-    <div class="block block-3" onclick="window.location.href='crafts/wood-carving.html'">
-        <div class="img3"></div>
-        <div class="block text">Резьба по дереву<br></div>
-    </div>
-    <div class="block block-4" onclick="window.location.href='crafts/embroidery.html'">
-        <div class="block text">Вышивка<br></div>
-        <div class="img4"></div>
-    </div>
-    <div class="block block-5" onclick="window.location.href='crafts/ceramics.html'">
-        <div class="img5"></div>
-        <div class="block text">Керамика<br></div>
-    </div>
-    <div class="block block-6" onclick="window.location.href='crafts/house-painting.html'">
-        <div class="block text">Роспись<br>Карманская</div>
-        <div class="img6"></div>
-    </div>
-</div>
-<div id="pdf-container"></div>
+    <div id="pdf-container"></div>
 
-    <!-- Подключение библиотеки PDF.js -->
+<!-- Подключение библиотеки PDF.js 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
     <script>
         const url = '«Тюменская жизнь_ наследие в искусстве и культуре».pdf'; // Замените на путь к вашему PDF-документу
@@ -140,9 +147,10 @@
                 });
             }
         });
-    </script>
+-->
+ 
 
-    <!--
+    
     <div class="stories-section" id="master-classes">
         <h1>Мастер-классы</h1>
         <div class="stories-grid">
@@ -185,7 +193,7 @@
         </div>
     </div>
 
-     ссылки  
+    <!-- ссылки -->
     <div class="explore-section" id="interesting">
         <h1>Интересные ссылки</h1>
         <div class="explore-buttons">
@@ -198,17 +206,20 @@
             <button>Роспись?</button>
         </div>
     </div>
-      Мини галерея 
+
+      
+    <!--Мини галерея -->
      <h1>Интерактив</h1>
      <div class="gallery-container" id="interactive">
         
-        <div class="gallery-card" onclick="window.location.href = 'interactive/interactive.html'">
+
+        <div class="gallery-card" onclick="openModal('interactive/interactive.html')">
             
             <img src="img/Screenshot 2024-11-13 194239.png" alt="Reggae Goes Mainstream">
             <div class="card-overlay">Раскраска</div>
             
         </div>
-        <div class="gallery-card">
+        <div class="gallery-card" onclick="openModal('interactive/interactive copy.html')">
             <img src="https://via.placeholder.com/150x200?text=The+Roots+of+Reggae" alt="The Roots of Reggae">
             <div class="card-overlay">The Roots of Reggae</div>
         </div>
@@ -221,7 +232,7 @@
             <div class="card-overlay">British Reggae</div>
         </div>
     </div>
--->
+
     <footer class="modern-footer">
         <div class="footer-grid">
             <div class="footer-column">
@@ -268,6 +279,34 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Функция для открытия модального окна
+        function openModal(url) {
+            const modal = document.getElementById('modal');
+            const iframe = document.getElementById('modal-iframe');
+            iframe.src = url;
+            modal.style.display = 'block';
+            document.body.classList.add('no-scroll'); // Отключаем прокрутку
+        }
+
+        // Закрытие модального окна
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            modal.style.display = 'none';
+            document.getElementById('modal-iframe').src = '';
+            document.body.classList.remove('no-scroll'); // Включаем прокрутку
+        }
+
+        document.querySelector('.close').onclick = closeModal;
+
+        // Закрытие модального окна при клике вне его
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
     <script src="js/btn_to_top.js"></script>
 </body>
 </html>

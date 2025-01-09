@@ -36,6 +36,10 @@ body, html {
     line-height: 1.5;
 }
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 .bg_img_begin {
     position: relative; /* Необходим для абсолютного позиционирования псевдоэлемента */
     overflow: hidden; /* Прячем содержимое, выходящее за пределы блока */
@@ -366,6 +370,7 @@ h2{
     flex-wrap: wrap;
     width: 100%;
     flex-direction: column;
+    background-color: #121212;
     
 }
 
@@ -389,9 +394,7 @@ h2{
     transition: transform 0.2s ease;
 }
 
-.img1:hover, .img2:hover, .img3:hover, .img4:hover, .img5:hover, .img6:hover {
-    transform: scale(1.03); /* Увеличиваем масштаб при наведении */
-}
+
 
 .img1 {
     background-image: url(https://goru.travel/storage/app/uploads/public/5ac/34b/6d4/5ac34b6d410bf504332294.jpg);
@@ -406,7 +409,7 @@ h2{
 }
 
 .img4 {
-    background-image: url("../img/вышивка3.png")
+    background-image: url("../img/nde5hdzsao0hpif0ylsw2akaie7v6wuh.jpg")
 }
 .img5 {
     background-image: url("../img/керамика.png"); 
@@ -665,7 +668,7 @@ h2{
 }
 
 .content .block:hover {
-    transform: scale(1.05);
+    transform: scale(0.95);
 }
 
 .content .block:active {
@@ -936,4 +939,72 @@ h2{
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Более темный фон для контраста */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 1000px; /* Увеличенный максимальный размер */
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+#modal-iframe {
+    width: 100%;
+    height: 80vh; /* Используем высоту вьюпорта для адаптивности */
+    border: none;
+    border-radius: 8px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+
+    #modal-iframe {
+        height: 80vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 80%;
+        margin: 15% auto;
+    }
+
+    #modal-iframe {
+        height: 80vh;
+    }
 }

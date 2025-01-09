@@ -13,9 +13,13 @@
         <div class="img1 animate__animated animate__zoomIn"></div>
         <h1 class="animate__animated animate__fadeInUp">Тюменский ковер</h1>
         <p class="animate__animated animate__fadeInUp">Тюменский ковер - это уникальное художественное наследие, где каждый узор, каждый цвет и орнамент несут глубокий культурный смысл. Это не просто предмет быта, а настоящее произведение искусства, отражающее мастерство, традиции и душу народных умельцев.</p>
-        <a href="../index.html" class="back-link animate__animated animate__pulse animate__delay-2s">Вернуться на главную</a>
+        <a href="#" class="back-link animate__animated animate__pulse animate__delay-2s" onclick="parent.closeModal()">Вернуться на главную</a>
+
+        <!-- Кнопка для разворачивания формы -->
+        <button class="toggle_Button" id="toggleFormButton" class="animate__animated animate__pulse animate__delay-2s">Пройти тест</button>
+        <script src="../js/toggle_Button_form.js"></script>
     <!-- Google Форма -->
-<div class="google-form">
+<div class="google-form" id="googleForm" style="display: none;">
     <iframe 
         src="https://docs.google.com/forms/d/e/1FAIpQLSdi6p6ANSPme_9yNYHv9TrWUbbnTjCgC1IMBg5Q0iLJSnnDIA/viewform?usp=dialog=true" 
         frameborder="0" 
