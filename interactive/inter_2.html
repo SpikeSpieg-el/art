@@ -24,10 +24,10 @@
 
         .canvas-container {
             position: relative;
-            width: 90vw;
+            width: 70vw;
             height: 90vw;
-            max-width: 800px;
-            max-height: 800px;
+            max-width: 700px;
+            max-height: 900px;
             margin-bottom: 20px;
         }
 
@@ -67,7 +67,8 @@
         }
 
         .control input {
-            width: 100px;
+            width: 200px;
+
         }
 
         a {
@@ -95,12 +96,15 @@
     <div class="controls">
         <div class="control">
             <label for="colorPicker">Цвет:</label>
-            <input type="color" id="colorPicker" value="#0000FF">
+            <input type="color" id="colorPicker" value="#000000">
         </div>
         <div class="control">
             <label for="brushSize">Ширина кисти:</label>
-            <input type="range" id="brushSize" min="1" max="20" value="5">
+            <input type="range" id="brushSize" min="1" max="100" value="10">
         </div>
+    </div>
+    <div>
+        <button onclick="parent.closeModal()">Вернуться на главную</button>
     </div>
 
     <div class="canvas-container">
@@ -108,9 +112,7 @@
         <canvas id="imageCanvas"></canvas>
     </div>
     
-    <div>
-        <a href="#" onclick="parent.closeModal()">Вернуться на главную</a>
-    </div>
+    
 
     <script>
         const drawingCanvas = document.getElementById('drawingCanvas');
@@ -119,8 +121,8 @@
         const imageCtx = imageCanvas.getContext('2d');
 
         const canvasContainer = document.querySelector('.canvas-container');
-        let currentColor = '#0000FF'; // Начальный цвет кисти
-        let currentBrushSize = 5; // Начальная ширина кисти
+        let currentColor = '#000000'; // Начальный цвет кисти
+        let currentBrushSize = 10; // Начальная ширина кисти
 
         // Устанавливаем размеры канвасов динамически
         function resizeCanvas() {
@@ -128,10 +130,10 @@
             const containerHeight = canvasContainer.clientHeight;
 
             drawingCanvas.width = containerWidth;
-            drawingCanvas.height = containerHeight;
+            drawingCanvas.height = containerHeight + 50;
 
             imageCanvas.width = containerWidth;
-            imageCanvas.height = containerHeight;
+            imageCanvas.height = containerHeight + 50;
 
             // Перерисовываем изображение после изменения размера
             if (image.complete) {
@@ -144,7 +146,7 @@
 
         // Загрузка изображения
         const image = new Image();
-        image.src = 'тест раскраски.png'; // Укажите путь к изображению
+        image.src = 'Рисунок_ковёр.png'; // Укажите путь к изображению
         image.onload = () => {
             resizeCanvas(); // Установить размеры после загрузки изображения
             imageCtx.drawImage(image, 0, 0, imageCanvas.width, imageCanvas.height);
