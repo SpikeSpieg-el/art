@@ -13,24 +13,50 @@
         <div class="img1 animate__animated animate__zoomIn"></div>
         <h1 class="animate__animated animate__fadeInUp">Тюменский ковер</h1>
         <p class="animate__animated animate__fadeInUp">Тюменский ковер - это уникальное художественное наследие, где каждый узор, каждый цвет и орнамент несут глубокий культурный смысл. Это не просто предмет быта, а настоящее произведение искусства, отражающее мастерство, традиции и душу народных умельцев.</p>
-        <a href="#" class="back-link animate__animated animate__pulse animate__delay-2s" onclick="parent.closeModal()">Вернуться на главную</a>
+        
 
-        <!-- Кнопка для разворачивания формы -->
-        <button class="toggle_Button" id="toggleFormButton" class="animate__animated animate__pulse animate__delay-2s">Пройти тест</button>
-        <script src="../js/toggle_Button_form.js"></script>
-    <!-- Google Форма -->
-<div class="google-form" id="googleForm" style="display: none;">
-    <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSdi6p6ANSPme_9yNYHv9TrWUbbnTjCgC1IMBg5Q0iLJSnnDIA/viewform?usp=dialog=true" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0">
-        Загрузка…
-    </iframe>
-</div>
+        <!-- Новая секция с текстом и картинками -->
+    <div class="history-section">
+        <h1 class="animate__animated animate__fadeInUp h2">История тюменского ковра</h1>
+        <p class="animate__animated animate__fadeInUp">Искусство ковроткачества появилось в Тюменском регионе в XVII веке благодаря мастерам из Бухарского ханства. Эти ковры отличались высококачественным густым ворсом, который достигал 15–20 мм, а также характерными орнаментами. Каждый узор имел символическое значение и рассказывал о культурных традициях региона.</p>
+        <div class="image-wrapper">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.9zVtnhPnPAxcq7Yu6JjBKAHaLP&pid=Api" alt="Тюменский ковер с цветочным орнаментом" class="image">
+        </div>
     </div>
 
+    <div class="history-section">
+        <h1 class="animate__animated animate__fadeInUp h2">Характерные особенности</h1>
+        <p class="animate__animated animate__fadeInUp">Тюменские ковры славились своими яркими цветами и устойчивостью к износу. Их часто использовали для утепления домов, укрытия саней и в качестве украшения интерьера. Основными материалами для их изготовления служили натуральная овечья шерсть и растительные красители.</p>
+        <div class="image-wrapper">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.orIqr8qB_DaJt5KIo2kBwwHaFS&pid=Api" alt="Легендарный тюменский ковер" class="image">
+        </div>
+    </div>
 
+    <div class="history-section">
+        <h1 class="animate__animated animate__fadeInUp h2">Современные традиции</h1>
+        <p class="animate__animated animate__fadeInUp">Сегодня мастера возрождают старинные технологии ковроткачества. Современные ковры сочетают в себе традиционные мотивы и современные дизайнерские решения. Они продолжают оставаться не только практичными, но и эстетически привлекательными элементами интерьера.</p>
+        <div class="image-wrapper">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.BGKnMrZPfav13kic5byk7gHaEk&pid=Api" alt="Современный тюменский ковер" class="image">
+        </div>
+    </div>
+    <button class="back-link animate__animated animate__pulse animate__delay-2s" onclick="parent.closeModal()">Вернуться на главную</button>
+
+        <!-- Кнопка для разворачивания формы -->
+        <button class="back-link animate__animated animate__pulse animate__delay-2s" id="toggleFormButton">Пройти тест</button>
+        <script src="../js/toggle_Button_form.js"></script>
+        
+        <!-- Google Форма -->
+        <div class="google-form" id="googleForm" style="display: none;">
+            <iframe 
+                src="https://docs.google.com/forms/d/e/1FAIpQLSdi6p6ANSPme_9yNYHv9TrWUbbnTjCgC1IMBg5Q0iLJSnnDIA/viewform?usp=dialog=true" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">
+                Загрузка…
+            </iframe>
+        </div>
+    </div>
+    
 
     <script>
         // GSAP Animation Example
