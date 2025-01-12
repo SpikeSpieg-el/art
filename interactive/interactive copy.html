@@ -10,7 +10,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
             font-family: Arial, sans-serif;
@@ -19,12 +19,13 @@
         h1 {
             text-align: center;
             font-size: 24px;
+            margin: 10px;
         }
 
         .canvas-container {
             position: relative;
-            width: 80vw;
-            height: 80vw;
+            width: 90vw;
+            height: 90vw;
             max-width: 800px;
             max-height: 800px;
             margin-bottom: 20px;
@@ -42,22 +43,7 @@
 
         #imageCanvas {
             z-index: 2;
-            pointer-events: none; /* Не даёт взаимодействовать с верхним слоем */
-        }
-
-        .palette {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .color {
-            width: 40px;
-            height: 40px;
-            margin: 5px;
-            border: 2px solid #000;
-            cursor: pointer;
+            pointer-events: none;
         }
 
         .controls {
@@ -65,10 +51,19 @@
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 20px;
+            gap: 10px;
         }
 
         .control {
-            margin: 0 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 5px;
+        }
+
+        .control label {
+            margin-bottom: 5px;
+            font-size: 14px;
         }
 
         .control input {
@@ -86,34 +81,9 @@
             text-decoration: underline;
         }
 
-        /* Медиа-запросы для маленьких экранов */
         @media (max-width: 600px) {
             h1 {
                 font-size: 20px;
-            }
-
-            .controls {
-                flex-direction: column;
-            }
-
-            .control input {
-                width: 80px;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .canvas-container {
-                width: 90vw;
-                height: 90vw;
-            }
-
-            .palette {
-                flex-direction: column;
-            }
-
-            .color {
-                width: 35px;
-                height: 35px;
             }
         }
     </style>
@@ -134,8 +104,8 @@
     </div>
 
     <div class="canvas-container">
-        <canvas id="drawingCanvas" width="800" height="800"></canvas>
-        <canvas id="imageCanvas" width="800" height="800"></canvas>
+        <canvas id="drawingCanvas"></canvas>
+        <canvas id="imageCanvas"></canvas>
     </div>
     
     <div>
@@ -148,66 +118,114 @@
         const drawingCtx = drawingCanvas.getContext('2d');
         const imageCtx = imageCanvas.getContext('2d');
 
-        let currentColor = '#0000FF'; // Начальный цвет кисти (синий)
+        const canvasContainer = document.querySelector('.canvas-container');
+        let currentColor = '#0000FF'; // Начальный цвет кисти
         let currentBrushSize = 5; // Начальная ширина кисти
 
-        // Загрузка PNG-картинки на верхний слой
+        // Устанавливаем размеры канвасов динамически
+        function resizeCanvas() {
+            const containerWidth = canvasContainer.clientWidth;
+            const containerHeight = canvasContainer.clientHeight;
+
+            drawingCanvas.width = containerWidth;
+            drawingCanvas.height = containerHeight;
+
+            imageCanvas.width = containerWidth;
+            imageCanvas.height = containerHeight;
+
+            // Перерисовываем изображение после изменения размера
+            if (image.complete) {
+                imageCtx.clearRect(0, 0, imageCanvas.width, imageCanvas.height);
+                imageCtx.drawImage(image, 0, 0, imageCanvas.width, imageCanvas.height);
+            }
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+
+        // Загрузка изображения
         const image = new Image();
-        image.src = 'тест раскраски.png'; // Замените на путь к вашей PNG-картинке
+        image.src = 'тест раскраски.png'; // Укажите путь к изображению
         image.onload = () => {
+            resizeCanvas(); // Установить размеры после загрузки изображения
             imageCtx.drawImage(image, 0, 0, imageCanvas.width, imageCanvas.height);
         };
 
         image.onerror = () => {
-            alert('Ошибка: Изображение не удалось загрузить. Проверьте путь.');
+            alert('Ошибка: Изображение не удалось загрузить.');
         };
 
         let isDrawing = false;
 
-        drawingCanvas.addEventListener('mousedown', () => {
+        // Получение координат мыши или касания
+        function getCoords(event) {
+            const rect = drawingCanvas.getBoundingClientRect();
+            if (event.touches) {
+                return {
+                    x: event.touches[0].clientX - rect.left,
+                    y: event.touches[0].clientY - rect.top
+                };
+            } else {
+                return {
+                    x: event.clientX - rect.left,
+                    y: event.clientY - rect.top
+                };
+            }
+        }
+
+        // Начало рисования
+        function startDrawing(event) {
             isDrawing = true;
             drawingCtx.beginPath();
-        });
+            const { x, y } = getCoords(event);
+            drawingCtx.moveTo(x, y);
+        }
 
-        drawingCanvas.addEventListener('mousemove', (event) => {
+        // Рисование
+        function draw(event) {
             if (!isDrawing) return;
 
-            const rect = drawingCanvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-
+            const { x, y } = getCoords(event);
             drawingCtx.lineTo(x, y);
-            drawingCtx.strokeStyle = currentColor; // Цвет кисти
-            drawingCtx.lineWidth = currentBrushSize; // Ширина кисти
+            drawingCtx.strokeStyle = currentColor;
+            drawingCtx.lineWidth = currentBrushSize;
             drawingCtx.lineCap = 'round';
             drawingCtx.stroke();
-        });
+        }
 
-        drawingCanvas.addEventListener('mouseup', () => {
+        // Окончание рисования
+        function stopDrawing() {
             isDrawing = false;
-        });
+        }
 
-        drawingCanvas.addEventListener('mouseout', () => {
-            isDrawing = false;
-        });
+        // События мыши
+        drawingCanvas.addEventListener('mousedown', startDrawing);
+        drawingCanvas.addEventListener('mousemove', draw);
+        drawingCanvas.addEventListener('mouseup', stopDrawing);
+        drawingCanvas.addEventListener('mouseout', stopDrawing);
 
-        // Изменение цвета кисти через цветовой input
+        // События касания
+        drawingCanvas.addEventListener('touchstart', (event) => {
+            event.preventDefault(); // Отключаем прокрутку при рисовании
+            startDrawing(event);
+        });
+        drawingCanvas.addEventListener('touchmove', (event) => {
+            event.preventDefault();
+            draw(event);
+        });
+        drawingCanvas.addEventListener('touchend', stopDrawing);
+
+        // Изменение цвета кисти
         document.getElementById('colorPicker').addEventListener('input', (event) => {
             currentColor = event.target.value;
         });
 
-        // Изменение ширины кисти через ползунок
+        // Изменение ширины кисти
         document.getElementById('brushSize').addEventListener('input', (event) => {
             currentBrushSize = event.target.value;
         });
 
-        // Выбор цвета из палитры
-        document.querySelectorAll('.color').forEach(colorDiv => {
-            colorDiv.addEventListener('click', () => {
-                currentColor = colorDiv.dataset.color;
-                document.getElementById('colorPicker').value = currentColor;
-            });
-        });
+        // Инициализация размеров при загрузке
+        resizeCanvas();
     </script>
 </body>
 </html>
