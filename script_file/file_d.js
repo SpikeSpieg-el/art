@@ -2,7 +2,11 @@
 const files = [
     { name: "1Пособие по орнаменту222.docx", path: "doc/1Пособие по орнаменту222.docx", label: "Скачать документ", section: "dpi-kostyum" },
     { name: "армянский кост белокрылова +.pptx", path: "pttx/армянский кост белокрылова +.pptx", label: "Скачать презентацию", section: "dpi-kostyum" },
-    { name: "Технология ковроткачества.pptx", path: "pptx/Технология ковроткачества.pptx", label: "Скачать презентацию", section: "dpi-kover" }
+    { name: "Технология ковроткачества.pptx", path: "pptx/Технология ковроткачества.pptx", label: "Скачать презентацию", section: "dpi-kover1" },
+    { name: "Тюменский ковёр.pdf", path: "pdf/Tyumenskiy_kovyor_pptx.pdf", label: "Скачать PDF", section: "dpi-kover" },
+    { name: "Тюменская жизнь наследие в искусстве и культуре.pdf", path: "pdf/«Тюменская жизнь_ наследие в искусстве и культуре».pdf", label: "Скачать PDF", section: "dpi-pdf2" },
+    { name: "Тюменское здочество.pdf", path: "pdf/Tyumenskoe_zodchestvo_pptx.pdf", label: "Скачать PDF", section: "dpi-pdf4" },
+    { name: "Каманская роспись.pdf", path: "pdf/Tyumenskaya_karmatskaya_rospis.pdf", label: "Скачать PDF", section: "dpi-pdfq" }
   ];
 
   // Иконки для различных типов файлов
@@ -11,6 +15,7 @@ const files = [
     docx: "https://img.icons8.com/color/48/000000/ms-word.png",
     ppt: "https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019.png",
     pptx: "https://img.icons8.com/color/48/000000/microsoft-powerpoint-2019.png",
+    pdf: "https://img.icons8.com/color/48/000000/pdf.png",
     default: "https://img.icons8.com/color/48/000000/file.png"
   };
 

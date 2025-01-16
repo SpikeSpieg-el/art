@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../script_file/file.css">
+    <title></title>
+</head>
+<body>
+  <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #canvas {
+        border: 1px solid black;
+        cursor: pointer;
+    }
+    #controls {
+        margin-top: 10px;
+    }
+          button {
+    background-color: #4CAF50; /* Зеленый цвет фона */
+    border: none; /* Убираем рамку */
+    color: white; /* Белый цвет текста */
+    padding: 15px 32px; /* Отступы */
+    text-align: center; /* Выравнивание текста по центру */
+    text-decoration: none; /* Убираем подчеркивание */
+    display: inline-block; /* Делаем кнопку блочным элементом */
+    font-size: 16px; /* Размер шрифта */
+    margin: 4px 2px; /* Отступы вокруг кнопки */
+    cursor: pointer; /* Меняем курсор на указатель при наведении */
+    border-radius: 5px; /* Скругление углов */
+    transition: background-color 0.3s ease; /* Анимация плавного изменения цвета */ 
+  }
+
+  button:hover {
+    background-color: #3e8e41; /* Темно-зеленый цвет при наведении */
+  } 
+  #results {
+    display: none;
+    margin-top: 20px;
+  }
+  #pdf-container {
+    max-width: 100%; /* Ограничиваем ширину контейнера */
+    overflow-x: auto; /* Добавляем горизонтальную прокрутку, если необходимо */
+  }
+  .pdf-page {
+    max-width: 100%; /* Ограничиваем ширину каждой страницы PDF */
+    height: auto; /* Сохраняем пропорции */
+  }
+  </style>
+
+<div id="pdf-container"></div>
+
+  <!--<div id="dpi-kostyum"></div>-->
+  <div id="dpi-pdf4"></div>
+  <button onclick="parent.closeModal()">Вернуться на главную</button>
+  <script src="../script_file/file_d.js"></script>
+
+  <!-- Подключение библиотеки PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script>
+        const url = '../pdf/Tyumenskoe_zodchestvo_pptx.pdf'; // Замените на путь к вашему PDF-документу
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
+
+        const loadingTask = pdfjsLib.getDocument(url);
+        loadingTask.promise.then(function(pdf) {
+            const numPages = pdf.numPages;
+            const container = document.getElementById('pdf-container');
+
+            for (let i = 1; i <= numPages; i++) {
+                pdf.getPage(i).then(function(page) {
+                    const viewport = page.getViewport({ scale: 1.5 });
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    canvas.className = 'pdf-page';
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    page.render(renderContext).promise.then(function() {
+                        container.appendChild(canvas);
+                    }).catch(function(error) {
+                        console.error('Ошибка при рендеринге страницы:', error);
+                    });
+                }).catch(function(error) {
+                    console.error('Ошибка при получении страницы:', error);
+                });
+            }
+        }).catch(function(error) {
+            console.error('Ошибка при загрузке документа:', error);
+        });
+    </script>
+</body>
+</html>

@@ -461,6 +461,67 @@ h2{
     justify-content: center;
 }
 
+.button-with-bg {
+    background-image: url('../img/img_b1.png');
+    background-size: cover; /* или contain, в зависимости от того, как вы хотите, чтобы изображение отображалось */
+    background-position: center;
+    color: white; /* Цвет текста, чтобы он был виден на фоне */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, filter 0.3s;
+    height: 60px;
+    width: 35%;
+}
+
+/* Эффект осветления при наведении на кнопку */
+.button-with-bg:hover {
+    filter: brightness(1.1); /* Увеличиваем яркость на 10% */
+}
+
+/* Если хотите применять эффект к вложенным элементам .q1, .q2, .q3 при наведении */
+.button-with-bg .q1:hover,
+.button-with-bg .q2:hover,
+.button-with-bg .q3:hover {
+    filter: brightness(1.1);
+}
+
+/* Альтернативный вариант с использованием псевдоэлемента для наложения белого слоя */
+.button-with-bg {
+    position: relative;
+    /* остальные стили */
+}
+
+.button-with-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0);
+    transition: background 0.3s;
+    pointer-events: none; /* Чтобы псевдоэлемент не блокировал взаимодействие с кнопкой */
+}
+
+.button-with-bg:hover::after {
+    background: rgba(255, 255, 255, 0.2); /* Добавляем прозрачный белый слой */
+}
+
+.q1 {
+    background-image: url('../img/img_b2.png');
+}   
+
+.q2 {
+    background-image: url('../img/img_b3.png');
+}       
+
+.q3 {
+    background-image: url('../img/img_b4.png');
+}       
+
+
 .explore-buttons button {
     background-color: black;
     color: white;
