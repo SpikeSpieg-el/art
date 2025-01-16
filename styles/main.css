@@ -492,9 +492,23 @@ h2{
 
 /* Сетка карточек */
 .stories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    padding: 0px 20px 0px 20px;
+}
+
+.stories-grid > * {
+    flex: 1 1 200px;
+}
+/* Сетка карточек2 */
+.stories-grid2 {
+    display: flex;
+    gap: 20px;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 20px 20px 20px;
 }
 
 .story-card {
@@ -503,10 +517,18 @@ h2{
     color: white;
     padding: 20px;
     height: 200px;
+    width: 300px; /* Изменено для соответствия .second */
     display: flex;
     align-items: flex-end;
     border-radius: 8px;
     overflow: hidden;
+}
+
+.story-card .second {
+    padding: 0 20px;
+    height: 100px;
+    width: 200px; /* Занимает всю ширину родителя */
+    /* Дополнительные стили при необходимости */
 }
 
 .story-overlay {
