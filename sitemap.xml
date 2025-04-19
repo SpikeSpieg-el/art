@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Главная страница -->
+    <url>
+        <loc>https://dpi-utm.ru/</loc>
+        <lastmod>2024-03-14</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://dpi-utm.ru/og-image.jpg</image:loc>
+            <image:title>Декоративно-прикладное искусство Тюмени</image:title>
+        </image:image>
+    </url>
+
+    <!-- Страницы направлений ДПИ -->
+    <url>
+        <loc>https://dpi-utm.ru/crafts/tyumen-carpet.html</loc>
+        <lastmod>2024-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://dpi-utm.ru/crafts/folk-costume.html</loc>
+        <lastmod>2024-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://dpi-utm.ru/crafts/wood-carving.html</loc>
+        <lastmod>2024-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://dpi-utm.ru/crafts/embroidery.html</loc>
+        <lastmod>2024-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://dpi-utm.ru/crafts/ceramics.html</loc>
+        <lastmod>2024-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://dpi-utm.ru/crafts/house-painting.html</loc>
+        <lastmod>2024-03-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+</urlset> 

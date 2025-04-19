@@ -4,36 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Основные SEO мета-теги -->
-    <meta name="description" content="Декоративно-прикладное искусство Тюмени. Мастер-классы, традиционные ремесла, история и современные техники ДПИ.">
-    <meta name="keywords" content="декоративно-прикладное искусство, ДПИ, Тюмень, ремесла, мастер-классы, народные промыслы, ковроткачество, вышивка, керамика">
-    <meta name="author" content="Тюменский центр ДПИ">
+    <!-- SEO метатеги -->
+    <title>Декоративно-прикладное искусство Тюмени | Мастер-классы, традиции, современное искусство</title>
+    <meta name="description" content="Погрузитесь в мир декоративно-прикладного искусства Тюмени. Мастер-классы, традиционные техники, современное искусство. Тюменский ковер, народные промыслы, керамика и многое другое.">
+    <meta name="keywords" content="декоративно-прикладное искусство, ДПИ, Тюмень, мастер-классы, тюменский ковер, народные промыслы, керамика, вышивка, роспись">
     
-    <!-- Open Graph / Социальные сети -->
-    <meta property="og:title" content="Декоративно-прикладное искусство Тюмени">
-    <meta property="og:description" content="Изучайте традиционные ремесла и современные техники декоративно-прикладного искусства Тюменского региона">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://dpi-utm.ru/">
+    
+    <!-- Open Graph разметка -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://dpi-tyumen.ru">
-    <meta property="og:image" content="https://dpi-tyumen.ru/images/og-image.jpg">
+    <meta property="og:url" content="https://dpi-utm.ru/">
+    <meta property="og:title" content="Декоративно-прикладное искусство Тюмени">
+    <meta property="og:description" content="Погрузитесь в мир декоративно-прикладного искусства Тюмени. Мастер-классы, традиционные техники, современное искусство.">
+    <meta property="og:image" content="https://dpi-utm.ru/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     
-    <!-- Для поисковых роботов -->
+    <!-- Twitter Card разметка -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Декоративно-прикладное искусство Тюмени">
+    <meta name="twitter:description" content="Погрузитесь в мир декоративно-прикладного искусства Тюмени. Мастер-классы, традиционные техники, современное искусство.">
+    <meta name="twitter:image" content="https://dpi-utm.ru/og-image.jpg">
+    
+    <!-- Дополнительные метатеги -->
+    <meta name="author" content="ДПИ Тюмени">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <link rel="canonical" href="https://dpi-tyumen.ru" />
+    <meta name="google" content="notranslate">
     
     <!-- Предзагрузка критических ресурсов -->
     <link rel="preload" href="styles/main.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" as="style">
     
-    <!-- Критические стили -->
-    <link rel="stylesheet" href="styles/main.css">
+    <!-- Favicon -->
     <link rel="icon" href="Frame 25.png" type="image/png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     
-    <!-- Шрифты -->
+    <!-- Основные стили -->
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
     
+    <!-- Структурированные данные JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Декоративно-прикладное искусство Тюмени",
+        "url": "https://dpi-utm.ru/",
+        "description": "Сайт о декоративно-прикладном искусстве Тюмени, мастер-классах и народных промыслах",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://dpi-utm.ru/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ДПИ Тюмени",
+        "url": "https://dpi-utm.ru/",
+        "logo": "https://dpi-utm.ru/logonew.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+7-999-XXX-XXXX",
+            "contactType": "customer service",
+            "areaServed": "RU"
+        },
+        "sameAs": [
+            "https://github.com/SpikeSpieg-el/art"
+        ]
+    }
+    </script>
+
     <!-- Отложенная загрузка скриптов -->
     <script src="js/header.js" defer></script>
     
@@ -43,8 +94,6 @@
         body { opacity: 1; transition: opacity 0.3s; }
         .js-loading body { opacity: 0; }
     </style>
-    
-    <title>Декоративно-прикладное искусство Тюмени | Официальный сайт</title>
 </head>
 <body>
 
@@ -303,8 +352,7 @@
             </div>
             <div class="footer-column">
                 <h4>Социальные сети</h4>
-                <!-- ссылки на социальные сети -->
-                <!--<div class="social-links">
+                <div class="social-links">
                     <a href="https://github.com/SpikeSpieg-el/art" target="_blank" class="social-icon">
                         <i class="icon-github"></i>
                     </a>
@@ -314,7 +362,7 @@
                     <a href="https://www.youtube.com/" target="_blank" class="social-icon">
                         <i class="icon-youtube"></i>
                     </a>
-                </div>-->
+                </div>
             </div>
         </div>
         <div class="footer-bottom">

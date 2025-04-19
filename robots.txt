@@ -1,3 +1,41 @@
 User-agent: *
 Allow: /
-Sitemap: https://dpi-tyumen.ru/sitemap.xml
+Allow: /crafts/
+Allow: /styles/
+Allow: /js/
+Allow: /img/
+Allow: /images/
+Allow: /icon/
+
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?*
+Disallow: /cgi-bin/
+
+# Запрет индексации служебных файлов
+Disallow: /*.php$
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.txt$
+
+# Разрешаем индексацию основных страниц
+Allow: /index.html
+Allow: /crafts/*.html
+
+# Карта сайта
+Sitemap: https://dpi-utm.ru/sitemap.xml
+
+# Специальные правила для различных ботов
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+User-agent: Mail.Ru
+Allow: /
+Crawl-delay: 1
+
+Host: https://dpi-utm.ru 
