@@ -14,9 +14,10 @@
 <body>
 
     <!-- Шапка сайта -->
+    
     <div class="header">
         <div class="logo">
-            <img src="logo_DPI.svg" alt="Логотип ДПИ Тюмени">
+            <img src="logonew.png" alt="Логотип ДПИ Тюмени">
         </div>
         <nav>
             <a href="#about" class="nav-link">О нас</a>
@@ -24,8 +25,22 @@
             <a href="#master-classes" class="nav-link">Мастер-классы</a>
             <a href="#interesting" class="nav-link">Интересное</a>
             <a href="#interactive" class="nav-link">Интерактив</a>
+            <div class="user-section">
+                <a href="#" class="nav-link" id="loginButton" onclick="openLoginModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="#333333"/>
+                    </svg>
+                </a>
+                <a href="#" class="nav-link" id="logoutButton" onclick="logout()" style="display: none;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.58L17 17L22 12L17 7ZM4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z" fill="#333333"/>
+                    </svg>
+                </a>
+                <span id="userStatus" class="user-status">Гость</span>
+            </div>
         </nav>
     </div>
+
 
     <button onclick="scrollToTop()" id="scrollToTopBtn" title="Наверх">
         &#8679;
@@ -36,6 +51,28 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <iframe id="modal-iframe" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Модальное окно для входа -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Вход в личный кабинет</h2>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Логин:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="login-btn">Войти</button>
+                    <a href="#" class="forgot-password">Забыли пароль?</a>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -168,7 +205,7 @@
     <div class="explore-section" id="interesting">
         <h1>Интересные ссылки</h1>
         <div class="explore-buttons">
-            <button onclick="openModal('linksPg/origami.html')">Оригами закладка для книг</button>
+            <button onclick="checkAuthAndOpen('linksPg/origami.html')">Оригами закладка для книг</button>
             <button class="button-with-bg" onclick="openModal('linksPg/origami copy.html')">Тюменский ковёр</button>
             <button class="button-with-bg q1" onclick="openModal('linksPg/origami copy 2.html')">Карманская роспись</button>
             <button class="button-with-bg q2" onclick="openModal('linksPg/origami copy 3.html')">Резьба по дереву</button>
@@ -270,13 +307,100 @@
             document.body.classList.remove('no-scroll'); // Включаем прокрутку
         }
 
+        // Новые функции для модального окна входа
+        function openLoginModal() {
+            const loginModal = document.getElementById('loginModal');
+            loginModal.style.display = 'block';
+            document.body.classList.add('no-scroll');
+        }
+
+        function closeLoginModal() {
+            const loginModal = document.getElementById('loginModal');
+            loginModal.style.display = 'none';
+            document.body.classList.remove('no-scroll');
+        }
+
+        // Функция выхода
+        function logout() {
+            document.getElementById('userStatus').textContent = 'Гость';
+            localStorage.removeItem('userStatus');
+            document.getElementById('loginButton').style.display = 'inline-block';
+            document.getElementById('logoutButton').style.display = 'none';
+        }
+
+        // Обработка отправки формы
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Получаем введенное имя пользователя
+            const username = document.getElementById('username').value;
+            // Меняем статус пользователя на введенное имя
+            document.getElementById('userStatus').textContent = username;
+            // Сохраняем статус в localStorage
+            localStorage.setItem('userStatus', username);
+            // Показываем кнопку выхода и скрываем кнопку входа
+            document.getElementById('loginButton').style.display = 'none';
+            document.getElementById('logoutButton').style.display = 'inline-block';
+            // Очищаем поля формы
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+            // Закрываем модальное окно
+            closeLoginModal();
+        });
+
+        // Проверяем статус при загрузке страницы
+        window.addEventListener('load', function() {
+            const savedStatus = localStorage.getItem('userStatus');
+            if (savedStatus) {
+                document.getElementById('userStatus').textContent = savedStatus;
+                document.getElementById('loginButton').style.display = 'none';
+                document.getElementById('logoutButton').style.display = 'inline-block';
+            } else {
+                document.getElementById('loginButton').style.display = 'inline-block';
+                document.getElementById('logoutButton').style.display = 'none';
+            }
+        });
+
         document.querySelector('.close').onclick = closeModal;
 
-        // Закрытие модального окна при клике вне его
+        // Закрытие модальных окон при клике вне их
         window.onclick = function(event) {
             const modal = document.getElementById('modal');
+            const loginModal = document.getElementById('loginModal');
             if (event.target == modal) {
                 closeModal();
+            }
+            if (event.target == loginModal) {
+                closeLoginModal();
+            }
+        }
+
+        // Функция проверки авторизации и открытия контента
+        function checkAuthAndOpen(url) {
+            const userStatus = document.getElementById('userStatus').textContent;
+            if (userStatus === 'Гость') {
+                // Показываем уведомление
+                const notification = document.createElement('div');
+                notification.className = 'auth-notification';
+                notification.innerHTML = `
+                    <div class="notification-content">
+                        <p>Для просмотра этого контента необходимо авторизоваться</p>
+                        <button onclick="openLoginModal(); closeNotification()">Войти</button>
+                    </div>
+                `;
+                document.body.appendChild(notification);
+                
+                // Автоматически скрываем уведомление через 5 секунд
+                setTimeout(closeNotification, 5000);
+            } else {
+                openModal(url);
+            }
+        }
+
+        // Функция закрытия уведомления
+        function closeNotification() {
+            const notification = document.querySelector('.auth-notification');
+            if (notification) {
+                notification.remove();
             }
         }
     </script>

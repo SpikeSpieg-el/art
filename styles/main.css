@@ -266,7 +266,7 @@ h2{
 }
 
 .header .logo img {
-    max-height: 50px;
+    max-height: 65px;
     transition: transform 0.3s ease;
     padding-left: 24px;
     margin-right: 10px;
@@ -1094,5 +1094,172 @@ h2{
 
     #modal-iframe {
         height: 80vh;
+    }
+}
+
+/* Стили для модального окна входа */
+.login-form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.login-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #45a049;
+}
+
+.forgot-password {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+#loginModal .modal-content {
+    max-width: 400px;
+    padding: 20px;
+}
+
+#loginModal h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Стили для секции пользователя */
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 24px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-section svg {
+    transition: all 0.3s ease;
+}
+
+.user-section a:hover svg path {
+    fill: #DA4E5B;
+}
+
+.user-status {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .user-section {
+        margin-right: 12px;
+        justify-content: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+}
+
+/* Стили для уведомления об авторизации */
+.auth-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.notification-content {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 280px;
+}
+
+.notification-content p {
+    margin: 0;
+    color: #333;
+    font-size: 14px;
+}
+
+.notification-content button {
+    background-color: #DA4E5B;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.notification-content button:hover {
+    background-color: #c73e4a;
+}
+
+/* Адаптивные стили для уведомления */
+@media screen and (max-width: 480px) {
+    .auth-notification {
+        top: auto;
+        bottom: 20px;
+        right: 10px;
+        left: 10px;
+    }
+
+    .notification-content {
+        min-width: auto;
     }
 }
