@@ -4,12 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Декоративно-прикладное искусство</title>
+    
+    <!-- Предзагрузка критических ресурсов -->
+    <link rel="preload" href="styles/main.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" as="style">
+    
+    <!-- Критические стили -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" href="Frame 25.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Шрифты -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap">
+    
+    <!-- Отложенная загрузка скриптов -->
     <script src="js/header.js" defer></script>
     
+    <!-- Инлайн критические стили для первого экрана -->
+    <style>
+        /* Критические стили для первого экрана */
+        body { opacity: 1; transition: opacity 0.3s; }
+        .js-loading body { opacity: 0; }
+    </style>
 </head>
 <body>
 
@@ -290,35 +307,86 @@
         </div>
     </footer>
     <script>
-        // Функция для открытия модального окна
+        // Функция открытия модального окна
         function openModal(url) {
             const modal = document.getElementById('modal');
             const iframe = document.getElementById('modal-iframe');
+            
+            // Устанавливаем src для iframe
             iframe.src = url;
+            
+            // Показываем модальное окно
             modal.style.display = 'block';
-            document.body.classList.add('no-scroll'); // Отключаем прокрутку
+            document.body.classList.add('modal-open');
+            
+            // Добавляем класс для анимации через небольшую задержку
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
         }
 
-        // Закрытие модального окна
+        // Функция закрытия модального окна
         function closeModal() {
             const modal = document.getElementById('modal');
-            modal.style.display = 'none';
-            document.getElementById('modal-iframe').src = '';
-            document.body.classList.remove('no-scroll'); // Включаем прокрутку
+            
+            // Запускаем анимацию закрытия
+            modal.classList.remove('show');
+            
+            // Ждем окончания анимации перед скрытием
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.getElementById('modal-iframe').src = '';
+                document.body.classList.remove('modal-open');
+            }, 300);
         }
 
-        // Новые функции для модального окна входа
+        // Функция открытия модального окна для входа
         function openLoginModal() {
             const loginModal = document.getElementById('loginModal');
+            
             loginModal.style.display = 'block';
-            document.body.classList.add('no-scroll');
+            document.body.classList.add('modal-open');
+            
+            setTimeout(() => {
+                loginModal.classList.add('show');
+            }, 10);
         }
 
+        // Функция закрытия модального окна для входа
         function closeLoginModal() {
             const loginModal = document.getElementById('loginModal');
-            loginModal.style.display = 'none';
-            document.body.classList.remove('no-scroll');
+            
+            loginModal.classList.remove('show');
+            
+            setTimeout(() => {
+                loginModal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+            }, 300);
         }
+
+        // Обработчики событий
+        document.querySelector('.close').onclick = closeModal;
+
+        // Закрытие модальных окон при клике вне их
+        window.onclick = function(event) {
+            const modal = document.getElementById('modal');
+            const loginModal = document.getElementById('loginModal');
+            
+            if (event.target == modal) {
+                closeModal();
+            }
+            if (event.target == loginModal) {
+                closeLoginModal();
+            }
+        }
+
+        // Закрытие по клавише Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeLoginModal();
+            }
+        });
 
         // Функция выхода
         function logout() {
@@ -360,20 +428,6 @@
             }
         });
 
-        document.querySelector('.close').onclick = closeModal;
-
-        // Закрытие модальных окон при клике вне их
-        window.onclick = function(event) {
-            const modal = document.getElementById('modal');
-            const loginModal = document.getElementById('loginModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-            if (event.target == loginModal) {
-                closeLoginModal();
-            }
-        }
-
         // Функция проверки авторизации и открытия контента
         function checkAuthAndOpen(url) {
             const userStatus = document.getElementById('userStatus').textContent;
@@ -403,6 +457,37 @@
                 notification.remove();
             }
         }
+
+        // Подключение сервис-воркера
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        // Функция ленивой загрузки изображений
+        document.addEventListener('DOMContentLoaded', function() {
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        });
     </script>
     <script src="js/btn_to_top.js"></script>
 </body>
