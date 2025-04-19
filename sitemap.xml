@@ -9,8 +9,9 @@
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <image:image>
-            <image:loc>https://dpi-utm.ru/og-image.jpg</image:loc>
+            <image:loc>https://dpi-utm.ru/logonew.png</image:loc>
             <image:title>Декоративно-прикладное искусство Тюмени</image:title>
+            <image:caption>Логотип ДПИ Тюмени</image:caption>
         </image:image>
     </url>
 
