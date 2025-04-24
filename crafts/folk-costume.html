@@ -1,108 +1,141 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Народный костюм</title>
-    <link rel="stylesheet" href="../styles/styles_crafts.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Народный костюм</title>
+  <link rel="stylesheet" href="../styles/styles_crafts.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.11.4/dist/gsap.min.js"></script>
+  <style>
+    form {
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+    .submit-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #d93c3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: #a52a2a;
+    }
+    #results {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f4f4f4;
+      border-left: 5px solid #28a745;
+      font-weight: bold;
+      font-size: 16px;
+      opacity: 0;
+    }
+  </style>
 </head>
 <body>
-    <div class="container block-3 animate__animated animate__fadeIn">
+  <div class="container block-3 animate__animated animate__fadeIn">
     <div class="img2 animate__animated animate__zoomIn"></div>
     <h1 class="animate__animated animate__fadeInUp">Народный костюм</h1>
     <p class="animate__animated animate__fadeInUp">
-        Народный костюм — это живая энциклопедия культуры...
+      Народный костюм — это живая энциклопедия культуры, отражающая историю, быт и эстетические воззрения народа...
     </p>
 
     <form id="quizForm">
-        <h2>1. Хантыйский костюм</h2>
-        <p>1. Какой основной материал традиционно используется в хантыйском костюме?</p>
-        <label><input type="radio" name="q1" value="а"> а) Бархат</label><br>
-        <label><input type="radio" name="q1" value="б"> б) Мех и кожа</label><br>
-        <label><input type="radio" name="q1" value="в"> в) Лён</label><br>
-        <label><input type="radio" name="q1" value="г"> г) Атлас</label><br>
+      <h2>1. Хантыйский костюм</h2>
+      <p>1. Какой основной материал традиционно используется в хантыйском костюме?</p>
+      <label for="q1a"><input id="q1a" type="radio" name="q1" value="а" /> а) Бархат</label>
+      <label for="q1b"><input id="q1b" type="radio" name="q1" value="б" /> б) Мех и кожа</label>
+      <label for="q1v"><input id="q1v" type="radio" name="q1" value="в" /> в) Лён</label>
+      <label for="q1g"><input id="q1g" type="radio" name="q1" value="г" /> г) Атлас</label>
 
-        <p>2. Какие узоры чаще всего украшают хантыйскую одежду?</p>
-        <label><input type="radio" name="q2" value="а"> а) Цветочные мотивы</label><br>
-        <label><input type="radio" name="q2" value="б"> б) Восточные арабески</label><br>
-        <label><input type="radio" name="q2" value="в"> в) Геометрические и символические орнаменты</label><br>
-        <label><input type="radio" name="q2" value="г"> г) Без узоров</label><br>
+      <p>2. Какие узоры чаще всего украшают хантыйскую одежду?</p>
+      <label for="q2a"><input id="q2a" type="radio" name="q2" value="а" /> а) Цветочные мотивы</label>
+      <label for="q2b"><input id="q2b" type="radio" name="q2" value="б" /> б) Восточные арабески</label>
+      <label for="q2v"><input id="q2v" type="radio" name="q2" value="в" /> в) Геометрические и символические орнаменты</label>
+      <label for="q2g"><input id="q2g" type="radio" name="q2" value="г" /> г) Без узоров</label>
 
-        <!-- Остальные вопросы аналогично -->
-        <p>3. Что отличает мужской костюм сибирских татар?</p>
-        <label><input type="radio" name="q3" value="а"> а) Длинный кафтан с вышивкой и поясом</label><br>
-        <label><input type="radio" name="q3" value="б"> б) Мешковатые штаны и рубаха без орнамента</label><br>
-        <label><input type="radio" name="q3" value="в"> в) Сарафан и жилет</label><br>
-        <label><input type="radio" name="q3" value="г"> г) Меховой плащ и сапоги</label><br>
+      <h2>2. Костюм сибирских татар</h2>
+      <p>3. Что отличает мужской костюм сибирских татар?</p>
+      <label for="q3a"><input id="q3a" type="radio" name="q3" value="а" /> а) Длинный кафтан с вышивкой и поясом</label>
+      <label for="q3b"><input id="q3b" type="radio" name="q3" value="б" /> б) Мешковатые штаны и рубаха без орнамента</label>
+      <label for="q3v"><input id="q3v" type="radio" name="q3" value="в" /> в) Сарафан и жилет</label>
+      <label for="q3g"><input id="q3g" type="radio" name="q3" value="г" /> г) Меховой плащ и сапоги</label>
 
-        <p>4. Какие ткани чаще всего использовались в праздничной одежде сибирских татар?</p>
-        <label><input type="radio" name="q4" value="а"> а) Джинса и хлопок</label><br>
-        <label><input type="radio" name="q4" value="б"> б) Бархат и парча</label><br>
-        <label><input type="radio" name="q4" value="в"> в) Мех и лён</label><br>
-        <label><input type="radio" name="q4" value="г"> г) Войлок</label><br>
+      <p>4. Какие ткани чаще всего использовались в праздничной одежде сибирских татар?</p>
+      <label for="q4a"><input id="q4a" type="radio" name="q4" value="а" /> а) Джинса и хлопок</label>
+      <label for="q4b"><input id="q4b" type="radio" name="q4" value="б" /> б) Бархат и парча</label>
+      <label for="q4v"><input id="q4v" type="radio" name="q4" value="в" /> в) Мех и лён</label>
+      <label for="q4g"><input id="q4g" type="radio" name="q4" value="г" /> г) Войлок</label>
 
-        <p>5. Какой элемент чаще всего встречается в женском костюме сибирячек?</p>
-        <label><input type="radio" name="q5" value="а"> а) Сарафан с вышивкой</label><br>
-        <label><input type="radio" name="q5" value="б"> б) Короткая юбка</label><br>
-        <label><input type="radio" name="q5" value="в"> в) Комбинезон</label><br>
-        <label><input type="radio" name="q5" value="г"> г) Блузка с кружевами</label><br>
+      <h2>3. Костюм русских сибиряков</h2>
+      <p>5. Какой элемент чаще всего встречается в женском костюме сибирячек?</p>
+      <label for="q5a"><input id="q5a" type="radio" name="q5" value="а" /> а) Сарафан с вышивкой</label>
+      <label for="q5b"><input id="q5b" type="radio" name="q5" value="б" /> б) Короткая юбка</label>
+      <label for="q5v"><input id="q5v" type="radio" name="q5" value="в" /> в) Комбинезон</label>
+      <label for="q5g"><input id="q5g" type="radio" name="q5" value="г" /> г) Блузка с кружевами</label>
 
-        <p>6. Какие цвета чаще всего использовались в народной одежде русских сибиряков?</p>
-        <label><input type="radio" name="q6" value="а"> а) Белый, красный, синий</label><br>
-        <label><input type="radio" name="q6" value="б"> б) Чёрный и серый</label><br>
-        <label><input type="radio" name="q6" value="в"> в) Фиолетовый и оранжевый</label><br>
-        <label><input type="radio" name="q6" value="г"> г) Зелёный и коричневый</label><br>
+      <p>6. Какие цвета чаще всего использовались в народной одежде русских сибиряков?</p>
+      <label for="q6a"><input id="q6a" type="radio" name="q6" value="а" /> а) Белый, красный, синий</label>
+      <label for="q6b"><input id="q6b" type="radio" name="q6" value="б" /> б) Чёрный и серый</label>
+      <label for="q6v"><input id="q6v" type="radio" name="q6" value="в" /> в) Фиолетовый и оранжевый</label>
+      <label for="q6g"><input id="q6g" type="radio" name="q6" value="г" /> г) Зелёный и коричневый</label>
 
-        <br><button type="button" onclick="checkAnswers()">Отправить</button>
+      <button type="button" class="submit-btn" onclick="checkAnswers()">Отправить</button>
     </form>
 
     <div id="results"></div>
-</div>
+  </div>
 
-<script>
+  <script>
     function checkAnswers() {
-        const correctAnswers = {
-            q1: 'б',
-            q2: 'в',
-            q3: 'а',
-            q4: 'б',
-            q5: 'а',
-            q6: 'а',
-        };
+      const correctAnswers = {
+        q1: 'б',
+        q2: 'в',
+        q3: 'а',
+        q4: 'б',
+        q5: 'а',
+        q6: 'а',
+      };
 
-        let resultText = '';
-        let score = 0;
+      let resultText = '';
+      let score = 0;
 
-        for (let key in correctAnswers) {
-            const selected = document.querySelector(`input[name="${key}"]:checked`);
-            if (selected) {
-                if (selected.value === correctAnswers[key]) {
-                    resultText += `Вопрос ${key[1]}: Верно<br>`;
-                    score++;
-                } else {
-                    resultText += `Вопрос ${key[1]}: Неверно (правильный ответ: ${correctAnswers[key]})<br>`;
-                }
-            } else {
-                resultText += `Вопрос ${key[1]}: Не выбран ответ<br>`;
-            }
+      for (let key in correctAnswers) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected) {
+          if (selected.value === correctAnswers[key]) {
+            resultText += `Вопрос ${key[1]}: <span style="color:green;">Верно</span><br>`;
+            score++;
+          } else {
+            resultText += `Вопрос ${key[1]}: <span style="color:red;">Неверно</span> (правильный ответ: ${correctAnswers[key]})<br>`;
+          }
+        } else {
+          resultText += `Вопрос ${key[1]}: <span style="color:orange;">Не выбран ответ</span><br>`;
         }
+      }
 
-        resultText += `<br><strong>Результат: ${score} из 6</strong>`;
-        document.getElementById('results').innerHTML = resultText;
+      resultText += `<br><strong>Результат: ${score} из 6</strong>`;
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = resultText;
+      gsap.to(resultsDiv, { duration: 1, opacity: 1, ease: 'power2.out' });
     }
-</script>
 
-
-    <script>
-        // GSAP Animation Example
-        gsap.from(".container", {
-            duration: 1, 
-            opacity: 0, 
-            y: 50, 
-            ease: "power3.out"
-        });
-    </script>
+    // GSAP стартовая анимация
+    gsap.from(".container", {
+      duration: 1,
+      opacity: 0,
+      y: 50,
+      ease: "power3.out"
+    });
+  </script>
 </body>
 </html>
