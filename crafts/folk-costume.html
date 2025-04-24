@@ -10,22 +10,90 @@
 </head>
 <body>
     <div class="container block-3 animate__animated animate__fadeIn">
-        <div class="img2 animate__animated animate__zoomIn"></div>
-        <h1 class="animate__animated animate__fadeInUp">Народный костюм</h1>
-        <p class="animate__animated animate__fadeInUp">Народный костюм - это живая энциклопедия культуры, отражающая историю, быт и эстетические воззрения народа. Каждый элемент одежды, от ткани до мельчайшей детали орнамента, несет в себе глубокий символический смысл и является настоящим произведением искусства.</p>
-        <button class="back-link animate__animated animate__pulse animate__delay-2s" onclick="parent.closeModal()">Вернуться на главную</button>
-    </div>
-<!-- Google Форма 
-<div class="google-form">
-    <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSdJcA1wViiAh_4bkpzSTyGJH1BIFQU0YfRFsmaHLI9cDU6m4A/viewform?usp=sharing=true" 
-        frameborder="0" 
-        marginheight="0" 
-        marginwidth="0">
-        Загрузка…
-    </iframe>
+    <div class="img2 animate__animated animate__zoomIn"></div>
+    <h1 class="animate__animated animate__fadeInUp">Народный костюм</h1>
+    <p class="animate__animated animate__fadeInUp">
+        Народный костюм — это живая энциклопедия культуры...
+    </p>
+
+    <form id="quizForm">
+        <h2>1. Хантыйский костюм</h2>
+        <p>1. Какой основной материал традиционно используется в хантыйском костюме?</p>
+        <label><input type="radio" name="q1" value="а"> а) Бархат</label><br>
+        <label><input type="radio" name="q1" value="б"> б) Мех и кожа</label><br>
+        <label><input type="radio" name="q1" value="в"> в) Лён</label><br>
+        <label><input type="radio" name="q1" value="г"> г) Атлас</label><br>
+
+        <p>2. Какие узоры чаще всего украшают хантыйскую одежду?</p>
+        <label><input type="radio" name="q2" value="а"> а) Цветочные мотивы</label><br>
+        <label><input type="radio" name="q2" value="б"> б) Восточные арабески</label><br>
+        <label><input type="radio" name="q2" value="в"> в) Геометрические и символические орнаменты</label><br>
+        <label><input type="radio" name="q2" value="г"> г) Без узоров</label><br>
+
+        <!-- Остальные вопросы аналогично -->
+        <p>3. Что отличает мужской костюм сибирских татар?</p>
+        <label><input type="radio" name="q3" value="а"> а) Длинный кафтан с вышивкой и поясом</label><br>
+        <label><input type="radio" name="q3" value="б"> б) Мешковатые штаны и рубаха без орнамента</label><br>
+        <label><input type="radio" name="q3" value="в"> в) Сарафан и жилет</label><br>
+        <label><input type="radio" name="q3" value="г"> г) Меховой плащ и сапоги</label><br>
+
+        <p>4. Какие ткани чаще всего использовались в праздничной одежде сибирских татар?</p>
+        <label><input type="radio" name="q4" value="а"> а) Джинса и хлопок</label><br>
+        <label><input type="radio" name="q4" value="б"> б) Бархат и парча</label><br>
+        <label><input type="radio" name="q4" value="в"> в) Мех и лён</label><br>
+        <label><input type="radio" name="q4" value="г"> г) Войлок</label><br>
+
+        <p>5. Какой элемент чаще всего встречается в женском костюме сибирячек?</p>
+        <label><input type="radio" name="q5" value="а"> а) Сарафан с вышивкой</label><br>
+        <label><input type="radio" name="q5" value="б"> б) Короткая юбка</label><br>
+        <label><input type="radio" name="q5" value="в"> в) Комбинезон</label><br>
+        <label><input type="radio" name="q5" value="г"> г) Блузка с кружевами</label><br>
+
+        <p>6. Какие цвета чаще всего использовались в народной одежде русских сибиряков?</p>
+        <label><input type="radio" name="q6" value="а"> а) Белый, красный, синий</label><br>
+        <label><input type="radio" name="q6" value="б"> б) Чёрный и серый</label><br>
+        <label><input type="radio" name="q6" value="в"> в) Фиолетовый и оранжевый</label><br>
+        <label><input type="radio" name="q6" value="г"> г) Зелёный и коричневый</label><br>
+
+        <br><button type="button" onclick="checkAnswers()">Отправить</button>
+    </form>
+
+    <div id="results"></div>
 </div>
--->
+
+<script>
+    function checkAnswers() {
+        const correctAnswers = {
+            q1: 'б',
+            q2: 'в',
+            q3: 'а',
+            q4: 'б',
+            q5: 'а',
+            q6: 'а',
+        };
+
+        let resultText = '';
+        let score = 0;
+
+        for (let key in correctAnswers) {
+            const selected = document.querySelector(`input[name="${key}"]:checked`);
+            if (selected) {
+                if (selected.value === correctAnswers[key]) {
+                    resultText += `Вопрос ${key[1]}: Верно<br>`;
+                    score++;
+                } else {
+                    resultText += `Вопрос ${key[1]}: Неверно (правильный ответ: ${correctAnswers[key]})<br>`;
+                }
+            } else {
+                resultText += `Вопрос ${key[1]}: Не выбран ответ<br>`;
+            }
+        }
+
+        resultText += `<br><strong>Результат: ${score} из 6</strong>`;
+        document.getElementById('results').innerHTML = resultText;
+    }
+</script>
+
 
     <script>
         // GSAP Animation Example
