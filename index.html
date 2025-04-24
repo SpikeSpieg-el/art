@@ -12,19 +12,19 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://dpi-utm.ru/">
     
+    
     <!-- Open Graph разметка -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://dpi-utm.ru/">
     <meta property="og:title" content="Декоративно-прикладное искусство Тюмени">
     <meta property="og:description" content="Погрузитесь в мир декоративно-прикладного искусства Тюмени. Мастер-классы, традиционные техники, современное искусство.">
-    <meta property="og:image" content="https://dpi-utm.ru/logonew.png">
+    <meta property="og:image" content="https://dpi-utm.ru/logonew2.png">
     <meta property="og:image:alt" content="Логотип ДПИ Тюмени">
-    
-    <!-- Twitter Card разметка -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Декоративно-прикладное искусство Тюмени">
-    <meta name="twitter:description" content="Погрузитесь в мир декоративно-прикладного искусства Тюмени. Мастер-классы, традиционные техники, современное искусство.">
-    <meta name="twitter:image" content="https://dpi-utm.ru/logonew.png">
+    <meta property="og:site_name" content="ДПИ Тюмени">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
     
     <!-- Дополнительные метатеги -->
     <meta name="author" content="ДПИ Тюмени">
@@ -39,7 +39,6 @@
     
     <!-- Favicon и иконки -->
     <link rel="icon" href="Frame 25.png" type="image/png">
-    <link rel="icon" type="image/svg+xml" href="logo_DPI.svg">
     <meta name="theme-color" content="#DA4E5B">
     
     <!-- Основные стили -->
@@ -69,7 +68,7 @@
         "@type": "Organization",
         "name": "ДПИ Тюмени",
         "url": "https://dpi-utm.ru/",
-        "logo": "https://dpi-utm.ru/logonew.png",
+        "logo": "https://dpi-utm.ru/logonew2.png",
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+7-999-XXX-XXXX",
@@ -108,17 +107,24 @@
             <a href="#interactive" class="nav-link">Интерактив</a>
             <div class="user-section">
                 <a href="#" class="nav-link" id="loginButton" onclick="openLoginModal()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="#333333"/>
-                    </svg>
+                    <span class="nav-content">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="#333333"/>
+                        </svg>
+                        <span class="nav-text">Войти</span>
+                    </span>
                 </a>
                 <a href="#" class="nav-link" id="logoutButton" onclick="logout()" style="display: none;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.58L17 17L22 12L17 7ZM4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z" fill="#333333"/>
-                    </svg>
+                    <span class="nav-content">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.58L17 17L22 12L17 7ZM4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z" fill="#333333"/>
+                        </svg>
+                        <span class="nav-text">Выйти</span>
+                    </span>
                 </a>
                 <span id="userStatus" class="user-status">Гость</span>
             </div>
+            
         </nav>
     </div>
 
@@ -166,8 +172,10 @@
             <span class="typing-cursor2">|</span>
         </h1>
         <script src="js/typing-animation.js"></script>
-
+        
+        
         <div class="content_begin" >
+            
             <div class="txt">
                 
             </div>
@@ -183,8 +191,8 @@
                     <div class="square-bottom2"></div>
                 </div>
             </div>
-            
-        </div>
+            </div>
+            <div class="background-marquee"></div>
         <div class="about_us" id="about_us">
             <h2>О нас</h2>
             <p>Декоративно-прикладное искусство - это не только хобби, но и возможность самовыражения,
@@ -198,7 +206,7 @@
                 <div class="square-top1_1"></div>
                 <div class="square-bottom1_1"></div>
             </div>
-            <h2> Основные направления ДПИ: </h2>
+            <h2>Основные направления ДПИ</h2>
             <div class="decorative-square right mid">
                 <div class="square-top2_2"></div>
                 <div class="square-bottom2_2"></div>
@@ -207,28 +215,82 @@
     </div>
     <div class="content">
         <div class="block block-1" onclick="openModal('crafts/tyumen-carpet.html')">
-            <div class="img1"></div>
-            <div class="block text">Тюменский ковёр<br>сибирский промысел</div>
+            <div class="img1" style="background-image: url(https://goru.travel/storage/app/uploads/public/5ac/34b/6d4/5ac34b6d410bf504332294.jpg);"></div>
+            <div class="block_text">
+                <span>Тюменский ковёр</span>
+                <small>сибирский промысел</small>
+                <div class="view-details">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="2"/>
+                        <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
         </div>
         <div class="block block-2" onclick="openModal('crafts/folk-costume.html')">
-            <div class="block text">Народный костюм<br></div>
-            <div class="img2"></div>
+            <div class="block_text">
+                <span>Народный костюм</span>
+                <small>традиции и символика</small>
+                <div class="view-details">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="2"/>
+                        <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="img2" style="background-image: url(https://t-l.ru/i/ncr1058/088/328088/tn_328088_2ce633bc8cd8fdf.jpg);"></div>
         </div>
         <div class="block block-3" onclick="openModal('crafts/wood-carving.html')">
-            <div class="img3"></div>
-            <div class="block text">Резьба по дереву<br></div>
+            <div class="img3" style="background-image: url('../img/DSC_0096.jpg');"></div>
+            <div class="block_text">
+                <span>Резьба по дереву</span>
+                <small>мастерство и узоры</small>
+                <div class="view-details">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="2"/>
+                        <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
         </div>
         <div class="block block-4" onclick="openModal('crafts/embroidery.html')">
-            <div class="block text">Вышивка<br></div>
-            <div class="img4"></div>
+            <div class="block_text">
+                <span>Вышивка</span>
+                <small>искусство и орнамент</small>
+                <div class="view-details">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="2"/>
+                        <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="img4" style="background-image: url('../img/nde5hdzsao0hpif0ylsw2akaie7v6wuh.jpg');"></div>
         </div>
         <div class="block block-5" onclick="openModal('crafts/ceramics.html')">
-            <div class="img5"></div>
-            <div class="block text">Керамика<br></div>
+            <div class="img5" style="background-image: url('../img/керамика.png');"></div>
+            <div class="block_text">
+                <span>Керамика</span>
+                <small>форма и фактура</small>
+                <div class="view-details">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="2"/>
+                        <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
         </div>
         <div class="block block-6" onclick="openModal('crafts/house-painting.html')">
-            <div class="block text">Роспись<br>Карманская</div>
-            <div class="img6"></div>
+            <div class="block_text">
+                <span>Роспись Карманская</span>
+                <small>цвет и наследие</small>
+                <div class="view-details">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="2"/>
+                        <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="img6" style="background-image: url(https://t-l.ru/i/ncr1058/666/325666/tn_rn325666_2ce618cf0bde8f7.jpg);"></div>
         </div>
     </div>
 
@@ -239,27 +301,27 @@
     <h1>Мастер-классы</h1>
 
 
-    <div class="stories-grid-flex">
+<div class="stories-grid-flex">
     <div class="stories-grid">
-        <div class="story-card">
+        <div class="story-card" onclick="openModal('The Gardener by Vincent Van Gogh', 'A closer look with La Galleria Nazionale')">
             <div class="story-overlay">
                 <h4>The Gardener by Vincent Van Gogh</h4>
                 <p>A closer look with La Galleria Nazionale</p>
             </div>
         </div>
-        <div class="story-card">
+        <div class="story-card" onclick="openModal('Trans and Non-Binary Representation in Art', '7 examples, from Stonewall to the silver screen')">
             <div class="story-overlay">
                 <h4>Trans and Non-Binary Representation in Art</h4>
                 <p>7 examples, from Stonewall to the silver screen</p>
             </div>
         </div>
-        <div class="story-card">
+        <div class="story-card" onclick="openModal('Meet the Stolid Buddha', 'Meditate with these messy sculptures')">
             <div class="story-overlay">
                 <h4>Meet the Stolid Buddha</h4>
                 <p>Meditate with these messy sculptures</p>
             </div>
         </div>
-        <div class="story-card">
+        <div class="story-card" onclick="openModal('Face-to-Face With Frogs', 'Discover with Frogs & Friends')">
             <div class="story-overlay">
                 <h4>Face-to-Face With Frogs</h4>
                 <p>Discover with Frogs & Friends</p>
@@ -267,13 +329,13 @@
         </div>  
     </div>
     <div class="stories-grid2">
-        <div class="story-card second">
+        <div class="story-card second" onclick="openModal('Is Africa the Future of Fashion?', 'See creativity on and off the runway')">
             <div class="story-overlay">
                 <h4>Is Africa the Future of Fashion?</h4>
                 <p>See creativity on and off the runway</p>
             </div>
         </div>
-        <div class="story-card second">
+        <div class="story-card second" onclick="openModal('Is Africa the Future of Fashion?', 'See creativity on and off the runway')">
             <div class="story-overlay">
                 <h4>Is Africa the Future of Fashion?</h4>
                 <p>See creativity on and off the runway</p>
@@ -349,16 +411,16 @@
             </div>
             <div class="footer-column">
                 <h4>Социальные сети</h4>
-                <div class="social-links">
+                <!--<div class="social-links">
                     <a href="https://github.com/SpikeSpieg-el/art" target="_blank" class="social-icon">
                         <i class="icon-github"></i>
-                    </a>
+                    </a>-->
                     <a href="https://vk.com/" target="_blank" class="social-icon">
                         <i class="icon-vk"></i>
                     </a>
-                    <a href="https://www.youtube.com/" target="_blank" class="social-icon">
+                    <!--<a href="https://www.youtube.com/" target="_blank" class="social-icon">
                         <i class="icon-youtube"></i>
-                    </a>
+                    </a>-->
                 </div>
             </div>
         </div>
@@ -371,38 +433,46 @@
         </div>
     </footer>
     <script>
+        let isModalOpen = false;
+
         // Функция открытия модального окна
         function openModal(url) {
-            const modal = document.getElementById('modal');
-            const iframe = document.getElementById('modal-iframe');
-            
-            // Устанавливаем src для iframe
-            iframe.src = url;
-            
-            // Показываем модальное окно
-            modal.style.display = 'block';
-            document.body.classList.add('modal-open');
-            
-            // Добавляем класс для анимации через небольшую задержку
-            setTimeout(() => {
-                modal.classList.add('show');
-            }, 10);
-        }
+    const modal = document.getElementById('modal');
+    const iframe = document.getElementById('modal-iframe');
+    
+    iframe.src = url;
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open');
+    
+    setTimeout(() => {
+        modal.classList.add('show');
+    }, 10);
+
+    isModalOpen = true;
+    history.pushState({ modalOpen: true }, '');
+}
+
 
         // Функция закрытия модального окна
         function closeModal() {
-            const modal = document.getElementById('modal');
-            
-            // Запускаем анимацию закрытия
-            modal.classList.remove('show');
-            
-            // Ждем окончания анимации перед скрытием
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.getElementById('modal-iframe').src = '';
-                document.body.classList.remove('modal-open');
-            }, 300);
-        }
+    const modal = document.getElementById('modal');
+
+    if (!isModalOpen) return; // предотвращаем повторное закрытие
+
+    modal.classList.remove('show');
+
+    setTimeout(() => {
+        modal.style.display = 'none';
+        document.getElementById('modal-iframe').src = '';
+        document.body.classList.remove('modal-open');
+    }, 300);
+
+    isModalOpen = false;
+
+    // Обновляем историю, чтобы "назад" не вело к повторному вызову closeModal
+    history.replaceState(null, '');
+}
+
 
         // Функция открытия модального окна для входа
         function openLoginModal() {
@@ -427,6 +497,13 @@
                 document.body.classList.remove('modal-open');
             }, 300);
         }
+
+        window.addEventListener('popstate', function(event) {
+    if (event.state && event.state.modalOpen && isModalOpen) {
+        closeModal();
+    }
+});
+
 
         // Обработчики событий
         document.querySelector('.close').onclick = closeModal;
@@ -552,6 +629,18 @@
 
             lazyImages.forEach(img => imageObserver.observe(img));
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const img = new Image();
+    img.src = 'images/animation.png';
+
+    img.onload = () => {
+        const patternWidth = img.width;
+        document.documentElement.style.setProperty('--scroll-distance', `${patternWidth * 2}px`);
+    };
+});
+
+
     </script>
     <script src="js/btn_to_top.js"></script>
 </body>
