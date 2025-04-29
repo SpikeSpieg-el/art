@@ -35,6 +35,25 @@ body, html {
     font-size: var(--text-base);
     line-height: 1.5;
 }
+.artwork-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.artwork-image {
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+@media screen  and (max-width: 768px){
+    .artwork-image {
+        max-width: 300px;
+    }
+}
+
 
 
 body.no-scroll {
@@ -42,27 +61,15 @@ body.no-scroll {
 }
 
 .bg_img_begin {
-    position: relative; /* Необходим для абсолютного позиционирования псевдоэлемента */
-    overflow: hidden; /* Прячем содержимое, выходящее за пределы блока */
-    margin-top: -20px; /* Компенсируем padding body */
-}
-
-.bg_img_begin::before {
-    content: ''; /* Псевдоэлемент должен иметь контент */
-    position: absolute; /* Абсолютное позиционирование относительно родителя */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /*background-image: url(https://i.pinimg.com/564x/bc/54/4e/bc544e2dad0b3738f48948cffe1d494c.jpg);*/
-    
-    opacity: 0.3; /* Установите уровень прозрачности изображения (0.0 - полностью прозрачный, 1.0 - полностью непрозрачный) */
-    z-index: 1; /* Устанавливаем порядок отображения */
-}
-
-.bg_img_begin > * {
-    position: relative; /* Чтобы содержимое было выше псевдоэлемента */
-    z-index: 2; /* Устанавливаем порядок отображения содержимого */
+    position: relative;
+    overflow: hidden;
+    margin-top: -20px;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #scrollToTopBtn {
@@ -130,6 +137,15 @@ h2{
     font-family: var(--font-primary);
     font-weight: 600;
 }
+h3{
+    
+    text-align: center;
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: var(--text-2xl);
+    color: var(--color-text);
+    font-weight: 600;
+}
 
 .content_begin {
    
@@ -143,7 +159,7 @@ h2{
 .txt {
     font-family: 'PT Sans', sans-serif;
     color: #333;
-    font-size: 18px;
+    font-size: var(--text-sm);
     text-align: center;
     padding: 0 60px; /* Add space for squares */
 }
@@ -458,6 +474,7 @@ h2{
     background-position: center;
     transition: all 0.5s ease;
     position: relative;
+    opacity: 90%;
 }
 
 .content .block:hover .img1,
@@ -517,12 +534,12 @@ h2{
 */
 
 
-.block-1 { background-color: white; }
-.block-2 { background-color: white; }
-.block-3 { background-color: white; }
-.block-4 { background-color: white; }
-.block-5 { background-color: white; }
-.block-6 { background-color: white; }
+.block-1 { background-color: #f0f1f2; }
+.block-2 { background-color: #f0f1f2; }
+.block-3 { background-color: #f0f1f2; }
+.block-4 { background-color: #f0f1f2; }
+.block-5 { background-color: #f0f1f2; }
+.block-6 { background-color: #f0f1f2; }
 
 /* Стиль для иконки просмотра подробностей */
 .content .block .view-details {
@@ -1135,9 +1152,11 @@ h2{
 
 
 .typing-container {
-    display: block;
-    position: relative;
-    min-width: 310px;
+    flex: 1;
+    
+}
+.about_ww{
+ display: flex;
 }
 
 .typing-text {
@@ -1494,6 +1513,10 @@ body.modal-open {
         background-position: var(--scroll-distance, 2px) 0;
     }
 }
+
+
+
+
 
 
 

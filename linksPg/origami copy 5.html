@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Декоративно-Прикладное Искусство Тюмени</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-pattern {
+            background-color: #f8f9fa;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .craft-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .craft-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .timeline-item {
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -29px;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background-color: #e5e7eb;
+            z-index: 0;
+        }
+        
+        .timeline-item:last-child::before {
+            height: 50%;
+        }
+        
+        .timeline-item:first-child::before {
+            top: 50%;
+            height: 50%;
+        }
+        
+        .timeline-dot {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-paint-brush text-white"></i>
+                </div>
+                <h1 class="text-xl font-bold text-gray-800">ДПИ Тюмени</h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#overview" class="text-gray-600 hover:text-amber-600 transition-colors">Обзор</a>
+                <a href="#crafts" class="text-gray-600 hover:text-amber-600 transition-colors">Ремесла</a>
+                <a href="#masters" class="text-gray-600 hover:text-amber-600 transition-colors">Мастера</a>
+                <a href="#classes" class="text-gray-600 hover:text-amber-600 transition-colors">Мастер-классы</a>
+                <a href="#gallery" class="text-gray-600 hover:text-amber-600 transition-colors">Галерея</a>
+            </nav>
+            
+            <button id="mobile-menu-button" class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-2">
+                <a href="#overview" class="block py-2 text-gray-600 hover:text-amber-600">Обзор</a>
+                <a href="#crafts" class="block py-2 text-gray-600 hover:text-amber-600">Ремесла</a>
+                <a href="#masters" class="block py-2 text-gray-600 hover:text-amber-600">Мастера</a>
+                <a href="#classes" class="block py-2 text-gray-600 hover:text-amber-600">Мастер-классы</a>
+                <a href="#gallery" class="block py-2 text-gray-600 hover:text-amber-600">Галерея</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern pt-28 pb-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 animate__animated animate__fadeInLeft">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Декоративно-Прикладное Искусство Тюмени</h1>
+                    <p class="text-lg text-gray-600 mb-8">Образовательная платформа, где традиции встречаются с современностью</p>
+                    <div class="flex space-x-4">
+                        <a href="#crafts" class="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors shadow-md">
+                            Исследовать ремесла
+                        </a>
+                        <a href="#classes" class="px-6 py-3 bg-white text-amber-600 border border-amber-600 rounded-lg hover:bg-amber-50 transition-colors">
+                            Мастер-классы
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 animate__animated animate__fadeInRight">
+                    <img src="https://picsum.photos/seed/tumen-dpi/600/400.jpg" alt="Декоративно-прикладное искусство Тюмени" class="rounded-lg shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Обзор Проекта</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <p class="text-gray-600 text-lg mb-8">
+                    Добро пожаловать на образовательный сайт, посвященный декоративно-прикладному искусству (ДПИ) Тюменского региона. Наш проект - это живое пространство, где традиции встречаются с современностью, а каждый желающий может прикоснуться к богатому культурному наследию народных ремесел.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-book text-amber-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Образовательные материалы</h3>
+                        <p class="text-gray-600">Подробные статьи, видеоуроки и интерактивные элементы для изучения ремесел.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-hands-helping text-amber-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Интерактивные мастер-классы</h3>
+                        <p class="text-gray-600">Пошаговые инструкции и видео-уроки от опытных мастеров ДПИ.</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                        <div class="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4">
+                            <i class="fas fa-user-friends text-amber-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Знакомство с местными мастерами</h3>
+                        <p class="text-gray-600">Биографии, истории и лайфхаки от лучших мастеров Тюменского региона.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-amber-50 border-l-4 border-amber-600 p-6 rounded-r-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Наша миссия</h3>
+                    <p class="text-gray-600">
+                        Сохранение, популяризация и развитие декоративно-прикладного искусства через современные образовательные подходы и цифровые технологии.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crafts Section -->
+    <section id="crafts" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Тюменские Ремесла</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Изучите уникальные традиционные ремесла Тюменского региона, которые передаются из поколения в поколение.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Тюменский ковер -->
+                <div class="craft-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="https://picsum.photos/seed/tumen-carpet/400/250.jpg" alt="Тюменский ковер" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Тюменский ковер</h3>
+                        <p class="text-gray-600 mb-4">Уникальное рукоделие, сочетающее элементы восточных и русских традиций.</p>
+                        <button class="craft-info-btn w-full py-2 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors" data-craft="tumen-carpet">
+                            Подробнее <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Керамика -->
+                <div class="craft-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="https://picsum.photos/seed/keramika/400/250.jpg" alt="Керамика" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Керамика</h3>
+                        <p class="text-gray-600 mb-4">Изделия из глины с уникальным тюменским орнаментом и техникой.</p>
+                        <button class="craft-info-btn w-full py-2 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors" data-craft="ceramics">
+                            Подробнее <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Вышивка -->
+                <div class="craft-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="https://picsum.photos/seed/vyshivka/400/250.jpg" alt="Вышивка" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Вышивка</h3>
+                        <p class="text-gray-600 mb-4">Традиционные тюменские узоры и техники вышивки на ткани.</p>
+                        <button class="craft-info-btn w-full py-2 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors" data-craft="embroidery">
+                            Подробнее <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Народный костюм -->
+                <div class="craft-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="https://picsum.photos/seed/kostyum/400/250.jpg" alt="Народный костюм" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Народный костюм</h3>
+                        <p class="text-gray-600 mb-4">Уникальные элементы традиционного тюменского народного костюма.</p>
+                        <button class="craft-info-btn w-full py-2 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors" data-craft="folk-costume">
+                            Подробнее <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Роспись Карманская -->
+                <div class="craft-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="https://picsum.photos/seed/rosпись/400/250.jpg" alt="Роспись Карманская" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Роспись Карманская</h3>
+                        <p class="text-gray-600 mb-4">Уникальная техника росписи по дереву, характерная для Тюменского региона.</p>
+                        <button class="craft-info-btn w-full py-2 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors" data-craft="carman-painting">
+                            Подробнее <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Резьба по дереву -->
+                <div class="craft-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <img src="https://picsum.photos/seed/resьba/400/250.jpg" alt="Резьба по дереву" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Резьба по дереву</h3>
+                        <p class="text-gray-600 mb-4">Традиционные тюменские мотивы в резьбе по дереву.</p>
+                        <button class="craft-info-btn w-full py-2 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors" data-craft="wood-carving">
+                            Подробнее <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Masters Section -->
+    <section id="masters" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Известные Мастера</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Познакомьтесь с выдающимися представителями декоративно-прикладного искусства Тюменского региона.
+                </p>
+            </>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="flex bg-gray-50 rounded-xl overflow-hidden shadow-sm">
+                    <img src="https://picsum.photos/seed/master1/150/150.jpg" alt="Мастер Ольга Иванова" class="w-1/3 h-48 object-cover">
+                    <div class="p-6 w-2/3">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Ольга Иванова</h3>
+                        <p class="text-amber-600 text-sm mb-3">Мастер Тюменского ковра</p>
+                        <p class="text-gray-600 text-sm mb-4">Член Союза дизайнеров России, лауреат премии Губернатора Тюменской области в сфере культуры и искусства.</p>
+                        <button class="master-info-btn text-amber-600 hover:text-amber-700 text-sm font-medium" data-master="olga-ivanova">
+                            Узнать больше <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex bg-gray-50 rounded-xl overflow-hidden shadow-sm">
+                    <img src="https://picsum.photos/seed/master2/150/150.jpg" alt="Мастер Дмитрий Петров" class="w-1/3 h-48 object-cover">
+                    <div class="p-6 w-2/3">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Дмитрий Петров</h3>
+                        <p class="text-amber-600 text-sm mb-3">Мастер Керамики</p>
+                        <p class="text-gray-600 text-sm mb-4">Художник-керамист с 25-летним стажем, автор уникальной техники глазурирования.</p>
+                        <button class="master-info-btn text-amber-600 hover:text-amber-700 text-sm font-medium" data-master="dmitry-petrov">
+                            Узнать больше <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex bg-gray-50 rounded-xl overflow-hidden shadow-sm">
+                    <img src="https://picsum.photos/seed/master3/150/150.jpg" alt="Мастер Елена Смирнова" class="w-1/3 h-48 object-cover">
+                    <div class="p-6 w-2/3">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Елена Смирнова</h3>
+                        <p class="text-amber-600 text-sm mb-3">Мастер Вышивки</p>
+                        <p class="text-gray-600 text-sm mb-4">Создательница уникальной коллекции традиционных тюменских узоров, автор учебных пособий.</p>
+                        <button class="master-info-btn text-amber-600 hover:text-amber-700 text-sm font-medium" data-master="elena-smirnova">
+                            Узнать больше <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="flex bg-gray-50 rounded-xl overflow-hidden shadow-sm">
+                    <img src="https://picsum.photos/seed/master4/150/150.jpg" alt="Мастер Антон Кузнецов" class="w-1/3 h-48 object-cover">
+                    <div class="p-6 w-2/3">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-1">Антон Кузнецов</h3>
+                        <p class="text-amber-600 text-sm mb-3">Мастер Резьбы по дереву</p>
+                        <p class="text-gray-600 text-sm mb-4">Потомственный резчик по дереву, автор проекта "Дерево и Время", лауреат национальной премии "Хрустальный компас".</p>
+                        <button class="master-info-btn text-amber-600 hover:text-amber-700 text-sm font-medium" data-master="anton-kuznetsov">
+                            Узнать больше <i class="fas fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classes Section -->
+    <section id="classes" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Мастер-классы</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Участвуйте в интерактивных мастер-классах и освойте традиционные тюменские ремесла.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden mb-12">
+                <div class="p-6 md:p-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Онлайн-марафон "ДПИ Тюмени"</h3>
+                    <p class="text-gray-600 mb-6">
+                        Присоединяйтесь к нашему онлайн-марафону, где мы в течение месяца будем знакомить вас с основами различных тюменских ремесел.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-calendar-alt text-amber-600 mr-2"></i>
+                                <span class="text-gray-700 font-medium">Сроки</span>
+                            </div>
+                            <p class="text-gray-600">Май - Июнь 2023</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-users text-amber-600 mr-2"></i>
+                                <span class="text-gray-700 font-medium">Участники</span>
+                            </div>
+                            <p class="text-gray-600">Без ограничений</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-chalkboard-teacher text-amber-600 mr-2"></i>
+                                <span class="text-gray-700 font-medium">Преподаватели</span>
+                            </div>
+                            <p class="text-gray-600">Известные мастера ДПИ</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row md:items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <span class="inline-block bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">
+                                <i class="fas fa-clock mr-1"></i> Бесплатно
+                            </span>
+                        </div>
+                        <a href="#" class="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors inline-block text-center">
+                            Записаться на марафон
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Расписание мастер-классов</h3>
+            
+            <div class="space-y-4">
+                <div class="timeline-item flex">
+                    <div class="timeline-dot w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-calendar-day text-white"></i>
+                    </div>
+                    <div class="ml-6 bg-white p-5 rounded-lg shadow-sm flex-grow">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                            <h4 class="text-lg font-semibold text-gray-800">Основы Тюменского ковра</h4>
+                            <span class="text-amber-600 font-medium">05 мая, 18:00</span>
+                        </div>
+                        <p class="text-gray-600 mb-3">Введение в технику создания тюменских ковров, подбор материалов и базовые узоры.</p>
+                        <div class="flex items-center">
+                            <img src="https://picsum.photos/seed/olga-master/40/40.jpg" alt="Ольга Иванова" class="w-8 h-8 rounded-full mr-2">
+                            <span class="text-gray-700 text-sm">Ольга Иванова</span>
+                            <button class="ml-auto px-4 py-1.5 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors text-sm">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item flex">
+                    <div class="timeline-dot w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-calendar-day text-white"></i>
+                    </div>
+                    <div class="ml-6 bg-white p-5 rounded-lg shadow-sm flex-grow">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                            <h4 class="text-lg font-semibold text-gray-800">Керамические сувениры</h4>
+                            <span class="text-amber-600 font-medium">12 мая, 18:00</span>
+                        </div>
+                        <p class="text-gray-600 mb-3">Создание небольших керамических изделий с использованием тюменских мотивов.</p>
+                        <div class="flex items-center">
+                            <img src="https://picsum.photos/seed/dmitry-master/40/40.jpg" alt="Дмитрий Петров" class="w-8 h-8 rounded-full mr-2">
+                            <span class="text-gray-700 text-sm">Дмитрий Петров</span>
+                            <button class="ml-auto px-4 py-1.5 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors text-sm">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item flex">
+                    <div class="timeline-dot w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-calendar-day text-white"></i>
+                    </div>
+                    <div class="ml-6 bg-white p-5 rounded-lg shadow-sm flex-grow">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                            <h4 class="text-lg font-semibold text-gray-800">Тюменские узоры в вышивке</h4>
+                            <span class="text-amber-600 font-medium">19 мая, 18:00</span>
+                        </div>
+                        <p class="text-gray-600 mb-3">Изучение традиционных тюменских узоров и их выполнение в технике вышивки.</p>
+                        <div class="flex items-center">
+                            <img src="https://picsum.photos/seed/elena-master/40/40.jpg" alt="Елена Смирнова" class="w-8 h-8 rounded-full mr-2">
+                            <span class="text-gray-700 text-sm">Елена Смирнова</span>
+                            <button class="ml-auto px-4 py-1.5 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors text-sm">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item flex">
+                    <div class="timeline-dot w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-calendar-day text-white"></i>
+                    </div>
+                    <div class="ml-6 bg-white p-5 rounded-lg shadow-sm flex-grow">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-3">
+                            <h4 class="text-lg font-semibold text-gray-800">Карманская роспись</h4>
+                            <span class="text-amber-600 font-medium">26 мая, 18:00</span>
+                        </div>
+                        <p class="text-gray-600 mb-3">Основы уникальной тюменской техники росписи по дереву с использованием традиционных красок.</p>
+                        <div class="flex items-center">
+                            <img src="https://picsum.photos/seed/anton-master/40/40.jpg" alt="Антон Кузнецов" class="w-8 h-8 rounded-full mr-2">
+                            <span class="text-gray-700 text-sm">Антон Кузнецов</span>
+                            <button class="ml-auto px-4 py-1.5 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors text-sm">
+                                Записаться
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Галерея Работ</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Познакомьтесь с лучшими работами мастеров декоративно-прикладного искусства Тюменского региона.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://picsum.photos/seed/gallery1/400/300.jpg" alt="Тюменский ковер" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                </div>
+                
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://picsum.photos/seed/gallery2/400/300.jpg" alt="Керамика" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                </div>
+                
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://picsum.photos/seed/gallery3/400/300.jpg" alt="Вышивка" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                </div>
+                
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://picsum.photos/seed/gallery4/400/300.jpg" alt="Народный костюм" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                </div>
+                
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://picsum.photos/seed/gallery5/400/300.jpg" alt="Роспись Карманская" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                </div>
+                
+                <div class="gallery-item overflow-hidden rounded-lg shadow-md cursor-pointer">
+                    <img src="https://picsum.photos/seed/gallery6/400/300.jpg" alt="Резьба по дереву" class="w-full h-64 object-cover transition-transform duration-300 hover:scale-105">
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors inline-block">
+                    Просмотреть все работы
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-paint-brush text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">ДПИ Тюмени</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Образовательная платформа, посвященная декоративно-прикладному искусству Тюменского региона.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-vk"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Ресурсы</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Образовательные материалы</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Мастер-классы</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Мастера</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Галерея</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">О нас</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">О проекте</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Новости</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Партнеры</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Подписка</h4>
+                    <p class="text-gray-400 mb-4">Подпишитесь на наши новости и будьте в курсе последних событий.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Ваш email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-amber-600 px-4 py-2 rounded-r-lg hover:bg-amber-700 transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Декоративно-Прикладное Искусство Тюмени. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Craft Info Modals -->
+    <div id="tumen-carpet-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Тюменский ковер</h3>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <img src="https://picsum.photos/seed/tumen-carpet-detail/600/400.jpg" alt="Тюменский ковер" class="w-full h-64 object-cover rounded-lg">
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">История и особенности</h4>
+                    <p class="text-gray-600 mb-4">
+                        Тюменский ковер - уникальное рукоделие, сочетающее элементы восточных и русских традиций. Возникло в XVII веке в Тюменском крае и быстро стало символом региона.
+                    </p>
+                    <p class="text-gray-600">
+                        Особенностью тюменских ковров является использование натуральных материалов (шерсть, хлопок) и ярких, насыщенных цветов, которые сохраняют свои свойства на протяжении многих лет.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Техника исполнения</h4>
+                <p class="text-gray-600 mb-4">
+                    Тюменские ковры создаются вручную на вертикальных станках. Основным узором является "горошек", который может варьироваться в зависимости от региона. Ковры отличаются высокой плотностью узлов (от 40 000 до 70 000 узлов на 1 м²).
+                </p>
+                <div class="bg-amber-50 p-4 rounded-lg">
+                    <h5 class="font-medium text-amber-800 mb-2">Основные материалы:</h5>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Шерсть (натуральная, преимущественно овечья)</li>
+                        <li>Хлопок (для основы)</li>
+                        <li>Натуральные красители (из трав, корней, минералов)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Современное состояние</h4>
+                <p class="text-gray-600 mb-4">
+                    Сегодня искусство создания тюменских ковров активно развивается. Мастера сохраняют традиционные технологии, но также вносят современные элементы в дизайн и цветовые решения. В Тюмени функционируют мастерские и школы, где обучают этому ремеслу.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <img src="https://picsum.photos/seed/carpet1/200/200.jpg" alt="Тюменский ковер" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/carpet2/200/200.jpg" alt="Тюменский ковер" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/carpet3/200/200.jpg" alt="Тюменский ковер" class="w-full h-32 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ceramics-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Керамика</h3>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <img src="https://picsum.photos/seed/keramika-detail/600/400.jpg" alt="Керамика" class="w-full h-64 object-cover rounded-lg">
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">История и особенности</h4>
+                    <p class="text-gray-600 mb-4">
+                        Тюменская керамика имеет богатую историю, уходящую корнями в XVII век. Изначально это было ремесло, необходимое для повседневной жизни, но со временем оно превратилось в настоящем художественное направление.
+                    </p>
+                    <p class="text-gray-600">
+                        Особенностью тюменской керамики является использование местных глин и уникальных техник глазурования, которые придают изделиям неповторимый блеск и прочность.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Техника исполнения</h4>
+                <p class="text-gray-600 mb-4">
+                    Тюменские керамические изделия создаются вручную из местных глин. Мастера используют как гончарный круг, так и лепку вручную. После сушки изделия обжигаются в печах при температуре 1000-1200°C, после чего наносятся глазури и проводится финальный обжиг.
+                </p>
+                <div class="bg-amber-50 p-4 rounded-lg">
+                    <h5 class="font-medium text-amber-800 mb-2">Основные материалы:</h5>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Местные глины (белая, красная, серая)</li>
+                        <li>Кварцевый песок</li>
+                        <li>Полевой шпат</li>
+                        <li>Натуральные глазури (основанные на свинцовых и борных компонентах)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Современное состояние</h4>
+                <p class="text-gray-600 mb-4">
+                    Сегодня тюменская керамика активно развивается. Мастера сохраняют традиционные технологии, но также экспериментируют с формами, цветами и современными подходами. В Тюмени работают несколько керамических мастерских, где создаются как утилитарные, так и художественные изделия.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <img src="https://picsum.photos/seed/ceramics1/200/200.jpg" alt="Керамика" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/ceramics2/200/200.jpg" alt="Керамика" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/ceramics3/200/200.jpg" alt="Керамика" class="w-full h-32 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="embroidery-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Вышивка</h3>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <img src="https://picsum.photos/seed/vyshivka-detail/600/400.jpg" alt="Вышивка" class="w-full h-64 object-cover rounded-lg">
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">История и особенности</h4>
+                    <p class="text-gray-600 mb-4">
+                        Тюменская вышивка имеет многовековую историю и отражает культурное наследие региона. Изначально это было ремесло, передаваемое из поколения в поколение, которое использовалось для украшения одежды, быта и религиозных предметов.
+                    </p>
+                    <p class="text-gray-600">
+                        Особенностью тюменской вышивки является использование характерных узоров и сочетание ярких, насыщенных цветов с тонкими деталями.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Техника исполнения</h4>
+                <p class="text-gray-600 mb-4">
+                    Тюменская вышивка выполняется на различных тканях (лен, хлопок, шелк) с использованием шелковых, хлопковых и золотых нитей. Основные техники включают гладь, тамбурную вышивку, крестик и набор. Особенно ценится вышивка на ленке, которая сохраняет яркость цветов на протяжении многих лет.
+                </p>
+                <div class="bg-amber-50 p-4 rounded-lg">
+                    <h5 class="font-medium text-amber-800 mb-2">Основные материалы:</h5>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Лен, хлопок, шелк (ткани)</li>
+                        <li>Шелковые и хлопковые нити</li>
+                        <li>Золотые и серебряные нити (для парадных вышивок)</li>
+                        <li>Нитки мулине</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Современное состояние</h4>
+                <p class="text-gray-600 mb-4">
+                    Сегодня тюменская вышивка активно развивается. Мастера сохраняют традиционные техники, но также вносят современные элементы в дизайн и цветовые решения. В Тюмени работают школы и кружки, где обучают этому ремеслу, а также проводятся выставки и фестивали, где демонстрируются лучшие образцы.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <img src="https://picsum.photos/seed/embroidery1/200/200.jpg" alt="Вышивка" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/embroidery2/200/200.jpg" alt="Вышивка" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/embroidery3/200/200.jpg" alt="Вышивка" class="w-full h-32 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="folk-costume-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Народный костюм</h3>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <img src="https://picsum.photos/seed/kostyum-detail/600/400.jpg" alt="Народный костюм" class="w-full h-64 object-cover rounded-lg">
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">История и особенности</h4>
+                    <p class="text-gray-600 mb-4">
+                        Тюменский народный костюм - это уникальное явление, отражающее культурное наследие региона. Он формировался на протяжении многих веков под влиянием разных народов, населявших эти территории.
+                    </p>
+                    <p class="text-gray-600">
+                        Особенностью тюменского народного костюма является его практичность, красоту и богатство декора, который варьировался в зависимости от социального статуса, возраста и социального статуса человека.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Состав и элементы</h4>
+                <p class="text-gray-600 mb-4">
+                    Традиционный тюменский костюм включал в себя множество элементов, которые могли незначительно отличаться в зависимости от конкретного района и социальной принадлежности. Основными элементами были:
+                </p>
+                <div class="bg-amber-50 p-4 rounded-lg">
+                    <h5 class="font-medium text-amber-800 mb-2">Основные элементы костюма:</h5>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Платок или кокошник (на голову)</li>
+                        <li>Фартук или передник (на грудь)</li>
+                        <li>Сарафан (нижняя часть)</li>
+                        <li>Футболка или рубаха (верхняя часть)</li>
+                        <li>Ботинки или лапти (обувь)</li>
+                        <li>Украшения (бусы, кольца, серьги)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Современное состояние</h4>
+                <p class="text-gray-600 mb-4">
+                    Сегодня тюменский народный костюм активно используется в фольклорных ансамблях, театральных постановках и на национальных праздниках. Также он стал объектом изучения для этнографов и историков, а ремесла, связанные с его созданием (ткачество, вышивка, ткачество), получили новое развитие.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <img src="https://picsum.photos/seed/costume1/200/200.jpg" alt="Народный костюм" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/costume2/200/200.jpg" alt="Народный костюм" class="w-full h-32 object-cover rounded">
+                    <img src="https://picsum.photos/seed/costume3/200/200.jpg" alt="Народный костюм" class="w-full h-32 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="carman-painting-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <h4 class="text-2xl font-bold text-gray-800">Роспись Карманская</h4>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <img src="https://picsum.photos/seed/rosпись-detail/600/400.jpg" alt="Роспись Карманская" class="w-full h-64 object-cover rounded-lg">
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">История и особенности</h4>
+                    <p class="text-gray-600 mb-4">
+                        Карманская роспись - уникальная техника декорирования деревянных изделий, которая получила свое развитие в Карманском районе Тюменской области. Возникла эта техника в XVIII веке и быстро стала одним из символов региона.
+                    </p>
+                    <p class="text-gray-600">
+                        Особенностью карманской росписи является использование характерных узоров, основанных на растительных мотивах, и контрастное сочетание цветов.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Техника исполнения</h4>
+                <p class="text-gray-600 mb-4">
+                    Карманская роспись выполняется на деревянных изделиях (скамейки, подносы, лари, утюги) с использованием специальных красок. Основные цвета - красный, синий, зеленый и желтый. Техника включает нанесение контура и последующее заполнение цветом, с использованием характерных узоров.
+                </p>
+                <div class="bg-amber-50 p-4 rounded-lg">
+                    <h5 class="font-medium text-amber-800 mb-2">Основные материалы:</h5>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Местные породы дерева (лиственница, сосна)</li>
+                        <li>Яичные желтки (основа красок)</li>
+                        <li>Натуральные пигменты (для получения цветов)</li>
+                        <li>Лак (для фиксации красок)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Современное состояние</h4>
+                <p class="text-gray-600 mb-4">
+                    Сегодня карманская роспись активно развивается. Мастера сохраняют традиционные техники, но также вносят современные элементы в дизайн и цветовые решения. В Тюмени работают школы и мастерские, где обучают этому ремеслу, а также проводятся выставки и фестивали, где демонстрируются лучшие образцы.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <img src="https://picsum.photos/seed/painting1/200/200.jpg" alt="Роспись Карманская" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/painting2/200/200.jpg" alt="Роспись Карманская" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/painting3/200/200.jpg" alt="Роспись Карманская" class="w-full h-32 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wood-carving-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Резьба по дереву</h3>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <img src="https://picsum.photos/seed/resьba-detail/600/400.jpg" alt="Резьба по дереву" class="w-full h-64 object-cover rounded-lg">
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">История и особенности</h4>
+                    <p class="text-gray-600 mb-4">
+                        Тюменская резьба по дереву - одно из древнейших ремесел региона, которое имеет многовековую историю. Изначально это было ремесло, необходимое для создания утилитарных предметов, но со временем оно превратилось в настоящем художественное направление.
+                    </p>
+                    <p class="text-gray-600">
+                        Особенностью тюменской резьбы по дереву является использование местных пород древесины и характерных узоров, которые отражают природные мотивы региона.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Техника исполнения</h4>
+                <p class="text-gray-600 mb-4">
+                    Тюменская резьба по дереву выполняется с использованием различных инструментов (киркуты, стамески, фуганки). Основные техники включают прорезную резьба, контурную резьба, рельефную резьба и объемную резьба. Особенно ценится резьба по лиственнице, которая имеет красивую текстуру и долговечна.
+                </p>
+                <div class="bg-amber-50 p-4 rounded-lg">
+                    <h5 class="font-medium text-amber-800 mb-2">Основные материалы:</h5>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Местные породы дерева (лиственница, сосна, береста)</li>
+                        <li>Инструменты (киркуты, стамески, фуганки)</li>
+                        <li>Пигменты (для росписи изделий)</li>
+                        <li>Лак (для защиты изделий)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Современное состояние</h4>
+                <p class="text-gray-600 mb-4">
+                    Сегодня тюменская резьба по дереву активно развивается. Мастера сохраняют традиционные техники, но также вносят современные элементы в дизайн и цветовые решения. В Тюмени работают школы и мастерские, где обучают этому ремеслу, а также проводятся выставки и фестивали, где демонстрируются лучшие образцы.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <img src="https://picsum.photos/seed/carving1/200/200.jpg" alt="Резьба по дереву" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/carving2/200/200.jpg" alt="Резьба по дереву" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/carving3/200/200.jpg" alt="Резьба по дереву" class="w-full h-32 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Master Info Modals -->
+    <div id="olga-ivanova-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Ольга Иванова</h3>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <img src="https://picsum.photos/seed/olga-master-large/400/400.jpg" alt="Ольга Иванова" class="w-full h-64 object-cover rounded-lg">
+                
+                <div class="md:col-span-2">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Биография</h4>
+                    <p class="text-gray-600 mb-4">
+                        Ольга Иванова - известный мастер Тюменского ковра, член Союза дизайнеров России и лауреат премии Губернатора Тюменской области в сфере культуры и искусства. Родилась в Тюмени в 1965 году, в семье мастеров коврового дела.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Ольга окончила Тюменский государственный университет по специальности "Дизайн", после чего посвятила себя изучению и возрождению традиций тюменского ковра. Она создала уникальную коллекцию традиционных узоров и разработала собственную технику создания ковров.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Основные достижения</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Лауреат премии Губернатора Тюменской области в сфере культуры и искусства</li>
+                    <li>Участник более 50 выставок в России и за рубежом</li>
+                    <li>Автор учебных пособий по технике создания тюменского ковра</li>
+                    <li>Руководитель мастерской "Тюменский ковер" при Тюменском государственном музее</li>
+                    <li>Преподаватель курсов по традиционным ремеслам в Тюменском колледже культуры</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Работы мастера</h4>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <img src="https://picsum.photos/seed/olga-work1/200/200.jpg" alt="Работа Ольги Ивановой" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/olga-work2/200/200.jpg" alt="Работа Ольги Ивановой" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/olga-work3/200/200.jpg" alt="Работа Ольги Ивановой" class="w-full h-32 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dmitry-petrov-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Дмитрий Петров</h3>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <img src="https://picsum.photos/seed/dmitry-master-large/400/400.jpg" alt="Дмитрий Петров" class="w-full h-64 object-cover rounded-lg">
+                
+                <div class="md:col-span-2">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Биография</h4>
+                    <p class="text-gray-600 mb-4">
+                        Дмитрий Петров - известный мастер тюменской керамики, художник-керамист с 25-летним стажем, автор уникальной техники глазурирования. Родился в Тюмени в 1975 году.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Дмитрий окончил Санкт-Петербургскую художественно-промышленную академию им. А.Л. Штиглица по специальности "Художник-керамист", после чего вернулся в Тюмень и посвятил себя изучению и возрождению традиций тюменской керамики. Он создал уникальную коллекцию керамических изделий и разработал собственную технику глазурирования.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Основные достижения</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Автор уникальной техники глазурирования керамических изделий</li>
+                    <li>Лауреат Всероссийского конкурса керамического искусства "Глиняная птица"</li>
+                    <li>Участник более 40 выставок в России и за рубежом</li>
+                    <li>Автор учебных пособий по технике создания тюменской керамики</li>
+                    <li>Руководитель мастерской "Тюменская керамика" при Тюменском государственном музее</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Работы мастера</h4>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <img src="https://picsum.photos/seed/dmitry-work1/200/200.jpg" alt="Работа Дмитрия Петрова" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/dmitry-work2/200/200.jpg" alt="Работа Дмитрия Петрова" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/dmitry-work3/200/200.jpg" alt="Работа Дмитрия Петрова" class="w-full h-32 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="elena-smirnova-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Елена Смирнова</h3>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <img src="https://picsum.photos/seed/elena-master-large/400/400.jpg" alt="Елена Смирнова" class="w-full h-64 object-cover rounded-lg">
+                
+                <div class="md:col-span-2">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Биография</h4>
+                    <p class="text-gray-600 mb-4">
+                        Елена Смирнова - известный мастер тюменской вышивки, создательница уникальной коллекции традиционных тюменских узоров, автор учебных пособий. Родилась в Тюмени в 1970 году.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Елена окончила Тюменский государственный университет по специальности "История", после чего посвятила себя изучению и возрождению традиций тюменской вышивки. Она создала уникальную коллекцию традиционных узоров и разработала методику преподавания этого ремесла.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Основные достижения</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Автор уникальной коллекции традиционных тюменских узоров</li>
+                    <li>Лауреат Всероссийского конкурса народного творчества "Созвездие мастеров"</li>
+                    <li>Участник более 30 выставок в России и за рубежом</li>
+                    <li>Автор учебных пособий по технике тюменской вышивки</li>
+                    <li>Руководитель мастерской "Тюменская вышивка" при Тюменском государственном музее</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Работы мастера</h4>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <img src="https://picsum.photos/seed/elena-work1/200/200.jpg" alt="Работа Елены Смирновой" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/elena-work2/200/200.jpg" alt="Работа Елены Смирновой" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/elena-work3/200/200.jpg" alt="Работа Елены Смирновой" class="w-full h-32 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="anton-kuznetsov-modal" class="modal fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 m-4">
+            <div class="flex justify-between items-start mb-4">
+                <h3 class="text-2xl font-bold text-gray-800">Антон Кузнецов</h3>
+                <button class="modal-close text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <img src="https://picsum.photos/seed/anton-master-large/400/400.jpg" alt="Антон Кузнецов" class="w-full h-64 object-cover rounded-lg">
+                
+                <div class="md:col-span-2">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">Биография</h4>
+                    <p class="text-gray-600 mb-4">
+                        Антон Кузнецов - известный мастер резьбы по дереву, потомственный резчик, автор проекта "Дерево и Время", лауреат национальной премии "Хрустальный компас". Родился в Тюмени в 1980 году.
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Антон окончил Тюменский государственный университет по специальности "Дизайн", после чего посвятил себя изучению и возрождению традиций тюменской резьбы по дереву. Он создал уникальную коллекцию резных изделий и разработал собственную технику резьбы.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Основные достижения</h4>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Лауреат национальной премии "Хрустальный компас"</li>
+                    <li>Автор проекта "Дерево и Время"</li>
+                    <li>Участник более 20 выставок в России и за рубежом</li>
+                    <li>Автор учебных пособий по технике резьбы по дереву</li>
+                    <li>Руководитель мастерской "Тюменская резьба" при Тюменском государственном музее</li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">Работы мастера</h4>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <img src="https://picsum.photos/seed/anton-work1/200/200.jpg" alt="Работа Антона Кузнецова" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/anton-work2/200/200.jpg" alt="Работа Антона Кузнецова" class="w-full h-32 object-cover rounded-lg">
+                    <img src="https://picsum.photos/seed/anton-work3/200/200.jpg" alt="Работа Антона Кузнецова" class="w-full h-32 object-cover rounded-lg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+      // Мобильное меню
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+      });
+
+      // Модальные окна
+      const modals = document.querySelectorAll('.modal');
+      const modalCloseButtons = document.querySelectorAll('.modal-close');
+
+      modalCloseButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              const modal = button.closest('.modal');
+              if (modal) {
+                  modal.classList.add('hidden');
+              }
+          });
+      });
+
+      modals.forEach(modal => {
+          modal.addEventListener('click', (e) => {
+              if (e.target === modal) {
+                  modal.classList.add('hidden');
+              }
+          });
+      });
+
+      // Открытие модальных окон для мастеров
+      const masterInfoButtons = document.querySelectorAll('.master-info-btn');
+
+      masterInfoButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              const masterId = button.getAttribute('data-master');
+              const modal = document.getElementById(`${masterId}-modal`);
+              if (modal) {
+                  modal.classList.remove('hidden');
+              }
+          });
+      });
+
+      // Открытие модальных окон для ремесел
+      const craftInfoButtons = document.querySelectorAll('.craft-info-btn');
+
+      craftInfoButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              const craftId = button.getAttribute('data-craft');
+              const modal = document.getElementById(`${craftId}-modal`);
+              if (modal) {
+                  modal.classList.remove('hidden');
+              }
+          });
+      });
+  </script>
+</body>
+
+</html>

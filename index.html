@@ -164,21 +164,23 @@
     </div>
 
     <div class="bg_img_begin" id="about">
-        <h1 class="typing-container">
+        <div class="about_ww">
+        <h3 class="typing-container">
             <span class="typing-text typing-line-1">Откройте мир декоративно-прикладного искусства вместе с нами!</span>
             <span class="typing-cursor1">|</span>
             <br>
             <span class="typing-text typing-line-2 hidden">Творите, учитесь и вдохновляйтесь.</span>
             <span class="typing-cursor2">|</span>
-        </h1>
+        </h3>
+    </div>
+        <div class="artwork-container">
+            <img src="images/Image 25.png" alt="Картина декоративно-прикладного искусства" class="artwork-image">
+        </div>
         <script src="js/typing-animation.js"></script>
-        
+    </div>
         
         <div class="content_begin" >
             
-            <div class="txt">
-                
-            </div>
             <div class="txt">
                 <div class="decorative-square left">
                     <div class="square-top1"></div>
@@ -186,12 +188,14 @@
                 </div>
                 <br>Этот сайт создан для всех, кто интересуется декоративно-прикладным искусством. 
                 <p>Здесь вы найдете мастер-классы, информацию о традициях и современных техниках, сможете узнать о мастерах Тюмени и поделиться своим творчеством</p>
+                
                 <div class="decorative-square right">
                     <div class="square-top2"></div>
                     <div class="square-bottom2"></div>
                 </div>
             </div>
-            </div>
+        </div>
+            
             <div class="background-marquee"></div>
         <div class="about_us" id="about_us">
             <h2>О нас</h2>
@@ -215,18 +219,33 @@
     </div>
     <div class="content">
         <div class="block block-1" onclick="openModal('crafts/tyumen-carpet.html')">
-            <div class="img1" style="background-image: url(https://goru.travel/storage/app/uploads/public/5ac/34b/6d4/5ac34b6d410bf504332294.jpg);"></div>
+            <div class="img1" style="background-image: url('../img/ковёр.png');"></div>
             <div class="block_text">
-                <span>Тюменский ковёр</span>
-                <small>сибирский промысел</small>
-                <div class="view-details">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="2"/>
-                        <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
-                    </svg>
-                </div>
+            <span>Тюменский ковёр</span>
+            <small>сибирский промысел</small>
+            <div class="view-details">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="2"/>
+            <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
+            </svg>
             </div>
-        </div>
+            <div class="flower-icon">
+            <img src="images/Star 4.svg" alt="Иконка цветка" style="position: absolute; top: 10px; right: 10px; height: 25px; animation: rotate 5s linear infinite;">
+            </div>
+            </div>
+            </div>
+            
+            <style>
+            @keyframes rotate {
+            from {
+            transform: rotate(0deg);
+            }
+            to {
+            transform: rotate(360deg);
+            }
+            }
+            </style>
+        
         <div class="block block-2" onclick="openModal('crafts/folk-costume.html')">
             <div class="block_text">
                 <span>Народный костюм</span>
@@ -237,11 +256,14 @@
                         <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
                     </svg>
                 </div>
+                <div class="flower-icon">
+                    <img src="images/Star 1.svg" alt="Иконка цветка" style="position: absolute; top: 10px; right: 10px; height: 25px; animation: rotate 5s linear infinite;">
+                </div>
             </div>
-            <div class="img2" style="background-image: url(https://t-l.ru/i/ncr1058/088/328088/tn_328088_2ce633bc8cd8fdf.jpg);"></div>
+            <div class="img2" style="background-image: url('../img/костюм.png');"></div>
         </div>
         <div class="block block-3" onclick="openModal('crafts/wood-carving.html')">
-            <div class="img3" style="background-image: url('../img/DSC_0096.jpg');"></div>
+            <div class="img3" style="background-image: url('../img/резьба.png');"></div>
             <div class="block_text">
                 <span>Резьба по дереву</span>
                 <small>мастерство и узоры</small>
@@ -250,6 +272,9 @@
                         <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="2"/>
                         <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
                     </svg>
+                </div>
+                <div class="flower-icon">
+                    <img src="images/Star 2.svg" alt="Иконка цветка" style="position: absolute; top: 10px; right: 10px; height: 25px; animation: rotate 5s linear infinite;">
                 </div>
             </div>
         </div>
@@ -263,11 +288,14 @@
                         <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
                     </svg>
                 </div>
+                <div class="flower-icon">
+                    <img src="images/Star 3.svg" alt="Иконка цветка" style="position: absolute; top: 10px; right: 10px; height: 25px; animation: rotate 5s linear infinite;">
+                </div>
             </div>
-            <div class="img4" style="background-image: url('../img/nde5hdzsao0hpif0ylsw2akaie7v6wuh.jpg');"></div>
+            <div class="img4" style="background-image: url('../img/вышивка3.png');"></div>
         </div>
         <div class="block block-5" onclick="openModal('crafts/ceramics.html')">
-            <div class="img5" style="background-image: url('../img/керамика.png');"></div>
+            <div class="img5" style="background-image: url('../img/керамика2.png');"></div>
             <div class="block_text">
                 <span>Керамика</span>
                 <small>форма и фактура</small>
@@ -276,6 +304,9 @@
                         <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="white" stroke-width="2"/>
                         <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
                     </svg>
+                </div>
+                <div class="flower-icon">
+                    <img src="images/Star 5.svg" alt="Иконка цветка" style="position: absolute; top: 10px; right: 10px; height: 25px; animation: rotate 5s linear infinite;">
                 </div>
             </div>
         </div>
@@ -289,8 +320,11 @@
                         <path d="M12 5C7.63636 5 4 8.5 2 12C4 15.5 7.63636 19 12 19C16.3636 19 20 15.5 22 12C20 8.5 16.3636 5 12 5Z" stroke="white" stroke-width="2"/>
                     </svg>
                 </div>
+                <div class="flower-icon">
+                    <img src="images/Star 1.svg" alt="Иконка цветка" style="position: absolute; top: 10px; right: 10px; height: 25px; animation: rotate 5s linear infinite;">
+                </div>
             </div>
-            <div class="img6" style="background-image: url(https://t-l.ru/i/ncr1058/666/325666/tn_rn325666_2ce618cf0bde8f7.jpg);"></div>
+            <div class="img6" style="background-image: url('../img/роспись.png');"></div>
         </div>
     </div>
 
