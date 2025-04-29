@@ -274,7 +274,7 @@ h3{
     margin-top: 20px;
     color: white;
     position: relative;
-    padding: 20px 0;
+    padding: 45px 0;
     border-radius: 0 0 10px 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -641,7 +641,8 @@ h3{
 /* Альтернативный вариант с использованием псевдоэлемента для наложения белого слоя */
 .button-with-bg {
     position: relative;
-    /* остальные стили */
+    height: 60px;
+    width: 320px;
 }
 
 .button-with-bg::after {
@@ -773,7 +774,7 @@ h3{
 
     h1{
         font-size: 28px;
-        padding: 0 20px 0 20px;
+        padding: 20px;
     }
 
      .block .text{
