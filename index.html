@@ -162,8 +162,9 @@
             </form>
         </div>
     </div>
-
+    
     <div class="bg_img_begin" id="about">
+        
         <div class="about_ww">
         <h3 class="typing-container">
             <span class="typing-text typing-line-1">Откройте мир декоративно-прикладного искусства вместе с нами!</span>
@@ -172,6 +173,7 @@
             <span class="typing-text typing-line-2 hidden">Творите, учитесь и вдохновляйтесь.</span>
             <span class="typing-cursor2">|</span>
         </h3>
+        
     </div>
         <div class="artwork-container">
             <img src="images/Image 25.png" alt="Картина декоративно-прикладного искусства" class="artwork-image">
@@ -182,29 +184,37 @@
         <div class="content_begin" >
             
             <div class="txt">
-                <div class="decorative-square left">
-                    <div class="square-top1"></div>
-                    <div class="square-bottom1"></div>
-                </div>
+                
                 <br>Этот сайт создан для всех, кто интересуется декоративно-прикладным искусством. 
                 <p>Здесь вы найдете мастер-классы, информацию о традициях и современных техниках, сможете узнать о мастерах Тюмени и поделиться своим творчеством</p>
                 
-                <div class="decorative-square right">
-                    <div class="square-top2"></div>
-                    <div class="square-bottom2"></div>
                 </div>
             </div>
-        </div>
+            
             
             <div class="background-marquee"></div>
         <div class="about_us" id="about_us">
+            
             <h2>О нас</h2>
             <p>Декоративно-прикладное искусство - это не только хобби, но и возможность самовыражения,
                 <br>развития своих навыков и открытия новых возможностей. Мы хотим помочь вам
                 <br>открыть для себя мир ДПИ,
                 <br>а также помочь вам в развитии ваших навыков и знаний.</p>
         </div>
-        
+        <div class="animated-bg">
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
         <div class="dpi_text" id="directions" >
             <div class="decorative-square left">
                 <div class="square-top1_1"></div>
@@ -217,6 +227,14 @@
             </div>
         </div>
     </div>
+    <!-- ссылки <div class="decorative-square left">
+                <div class="square-top1"></div>
+                <div class="square-bottom1"></div>
+            </div>
+            <div class="decorative-square right">
+                <div class="square-top2"></div>
+                <div class="square-bottom2"></div>
+            </div>-->
     <div class="content">
         <div class="block block-1" onclick="openModal('crafts/tyumen-carpet.html')">
             <div class="img1" style="background-image: url('../img/ковёр.png');"></div>
@@ -382,14 +400,14 @@
     <div class="explore-section" id="interesting">
         <h1>Интересные ссылки</h1>
         <div class="explore-buttons">
-            <button onclick="checkAuthAndOpen('linksPg/origami.html')">Оригами закладка для книг</button>
+            <button class="button-with-bg q3" onclick="checkAuthAndOpen('linksPg/origami.html')">Оригами закладка для книг</button>
             <button class="button-with-bg" onclick="openModal('linksPg/origami copy.html')">Тюменский ковёр</button>
             <button class="button-with-bg q1" onclick="openModal('linksPg/origami copy 2.html')">Карманская роспись</button>
             <button class="button-with-bg q2" onclick="openModal('linksPg/origami copy 3.html')">Резьба по дереву</button>
             <button class="button-with-bg q3" onclick="openModal('linksPg/origami copy 4.html')">Тюменское наследие в искусстве и культуре</button>
-            <button>Народный костюм</button>
-            <button>Вышивка</button>
-            <button>Керамика</button>
+            <button class="button-with-bg q3">Народный костюм</button>
+            <button class="button-with-bg q3">Вышивка</button>
+            <button class="button-with-bg q3">Керамика</button>
             
         </div>
     </div>
@@ -675,6 +693,34 @@
 });
 
 
+    </script>
+    <script>
+        // Создаем контейнер для кругов
+const circlesContainer = document.createElement('div');
+circlesContainer.classList.add('circles');
+document.body.appendChild(circlesContainer);
+
+// Функция для создания круга
+function createCircle() {
+    const circle = document.createElement('li');
+    const size = Math.random() * 100 + 20; // Размер круга от 20 до 120px
+    const left = Math.random() * 100; // Позиция по горизонтали от 0% до 100%
+    const delay = Math.random() * 10; // Задержка анимации от 0 до 10 секунд
+    const duration = Math.random() * 20 + 10; // Длительность анимации от 10 до 30 секунд
+
+    circle.style.width = `${size}px`;
+    circle.style.height = `${size}px`;
+    circle.style.left = `${left}%`;
+    circle.style.animationDelay = `${delay}s`;
+    circle.style.animationDuration = `${duration}s`;
+
+    return circle;
+}
+
+// Добавляем 10 кругов в контейнер
+for (let i = 0; i < 10; i++) {
+    circlesContainer.appendChild(createCircle());
+}
     </script>
     <script src="js/btn_to_top.js"></script>
 </body>
