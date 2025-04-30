@@ -201,7 +201,7 @@
                 <br>открыть для себя мир ДПИ,
                 <br>а также помочь вам в развитии ваших навыков и знаний.</p>
         </div>
-        
+    
         <div class="dpi_text" id="directions" >
             <div class="decorative-square left">
                 <div class="square-top1_1"></div>
@@ -724,6 +724,32 @@ function createCircle() {
 for (let i = 0; i < 10; i++) {
     circlesContainer.appendChild(createCircle());
 }
+    </script>
+    <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector('.header');
+        const nav = document.querySelector('.header nav');
+        const logo = document.querySelector('.header .logo');
+    
+        window.addEventListener('scroll', function() {
+            // Проверяем ширину экрана
+            if (window.innerWidth >= 768) {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    // Скролл вниз
+                    nav.classList.add('hidden');
+                    logo.style.position = 'fixed'; // Фиксируем логотип
+                    logo.style.left = '50%'; // Центрируем логотип
+                    logo.style.transform = 'translateX(-50%)';
+                } else {
+                    // Скролл вверх
+                    nav.classList.remove('hidden');
+                    logo.style.position = 'static'; // Возвращаем логотип в исходное положение
+                    logo.style.transform = 'none';
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }
+        });
     </script>
     <script src="js/btn_to_top.js"></script>
 </body>
